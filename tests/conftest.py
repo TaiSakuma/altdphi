@@ -11,7 +11,7 @@ from altdphi.maximum import maximum
 from altdphi.xi import xi
 
 ##__________________________________________________________________||
-@pytest.fixture(scope = 'module')
+@pytest.fixture(scope = 'session')
 def tbl_scan_event():
     tbl_path = os.path.join(os.path.dirname(__file__), 'data', 'tbl_scan_event.txt')
     ret =  pd.read_table(tbl_path, delim_whitespace = True)
@@ -20,7 +20,7 @@ def tbl_scan_event():
     ret.loc[ret.njet == 1, 'minChi'] = np.pi/2.0
     return ret
 
-@pytest.fixture(scope = 'module')
+@pytest.fixture(scope = 'session')
 def tbl_scan_jet():
     tbl_path = os.path.join(os.path.dirname(__file__), 'data', 'tbl_scan_jet.txt')
     return pd.read_table(tbl_path, delim_whitespace = True)
