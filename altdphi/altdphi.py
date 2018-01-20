@@ -153,13 +153,12 @@ class AltDphi(object):
 
     @cache_once_property
     def g(self):
-        # FIXME: with the definition of g in the paper <>
-        return np.maximum(self.cosDphi, -self.f)
+        return np.maximum(self.cosDphi + self.f, 0)
 
     @cache_once_property
     def sinDphiTilde(self):
         # should be the same as np.where(f + cosDphi >= 0, sinDphi, sinDphi/sinbDphi)
-        return np.sqrt(1 + self.g**2 - 2*self.g*self.cosDphi)
+        return np.sqrt(1 + (self.g - self.f)**2 - 2*(self.g - self.f)*self.cosDphi)
 
     @cache_once_property
     def dphiTilde(self):
@@ -172,7 +171,7 @@ class AltDphi(object):
 
     @cache_once_property
     def k(self):
-        return np.minimum(self.f, self.f + self.g)
+        return np.minimum(self.f, self.g)
 
     @cache_once_property
     def chi(self):
