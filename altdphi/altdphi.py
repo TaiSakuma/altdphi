@@ -125,7 +125,7 @@ class AltDphi(object):
         return np.arccos(self.cos_dphi)
 
     @cache_once_property
-    def sinDphi(self):
+    def sin_dphi(self):
         return np.sqrt(1 - self.cos_dphi**2)
 
     ##______________________________________________________________||
@@ -139,7 +139,7 @@ class AltDphi(object):
 
     @cache_once_property
     def omega(self):
-        return np.arctan2(self.sinDphi, self.f)
+        return np.arctan2(self.sin_dphi, self.f)
 
     @cache_once_property
     def omegaHat(self):
@@ -150,7 +150,7 @@ class AltDphi(object):
         ret = np.where(
             (self.f == 1) & (self.cos_dphi == -1),
             np.pi/2,
-            np.arctan2(self.sinDphi, self.f + self.cos_dphi)
+            np.arctan2(self.sin_dphi, self.f + self.cos_dphi)
         )
         return ret
 
