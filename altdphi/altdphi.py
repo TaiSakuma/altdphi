@@ -9,6 +9,16 @@ class AltDphi(object):
         self.pt = pt
         self.phi = phi
 
+    def __repr__(self):
+        name_value_pairs = (
+            ('pt', self.pt),
+            ('phi', self.phi),
+        )
+        return '{}({})'.format(
+            self.__class__.__name__,
+            ', '.join(['{} = {!r}'.format(n, v) for n, v in name_value_pairs]),
+        )
+
     @cache_once_property
     def px(self):
         return self.pt*np.cos(self.phi)
