@@ -36,4 +36,16 @@ def test_no_jet():
     assert np.isnan(alt.xi)
     assert np.isnan(alt.maxF)
 
+def test_monojet():
+    pt = np.array([1514.21])
+    phi = np.array([-1.042])
+    alt = AltDphi(pt = pt, phi = phi)
+    assert np.pi/2 == alt.minbDphi
+    assert 0 == alt.minOmega
+    assert np.pi/4 == alt.minOmegaHat
+    assert 0 == alt.minOmegaTilde
+    assert np.pi/2 == alt.minChi
+    ## assert np.pi/2 == alt.xi
+    assert 1 == alt.maxF
+
 ##__________________________________________________________________||
