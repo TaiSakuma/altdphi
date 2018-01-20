@@ -1,6 +1,8 @@
 # Tai Sakuma <tai.sakuma@cern.ch>
 import numpy as np
 
+from .altdphi import AltDphi
+
 ##__________________________________________________________________||
 class jetDphiAttrs(object):
     def __init__(self, inJetPrefix, outJetPrefix, minJetPt = None):
@@ -93,6 +95,8 @@ class jetDphiAttrs(object):
         pt = np.array(self.pt)
         phi = np.array(self.phi)
 
+        alt = AltDphi(pt = pt, phi = phi)
+
         px = pt*np.cos(phi)
         py = pt*np.sin(phi)
 
@@ -108,6 +112,7 @@ class jetDphiAttrs(object):
 
         # f
         f = pt/mht
+        f = alt.f()
         self.f[:] = f
 
         arccotF = np.arctan2(1, f)
