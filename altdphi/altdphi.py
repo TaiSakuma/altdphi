@@ -134,7 +134,7 @@ class AltDphi(object):
         return np.minimum(self.dphi, np.pi/2.0)
 
     @cache_once_property
-    def sinDphiHat(self):
+    def sin_dphi_hat(self):
         return np.sin(self.dphi_hat)
 
     @cache_once_property
@@ -143,7 +143,7 @@ class AltDphi(object):
 
     @cache_once_property
     def omegaHat(self):
-        return np.arctan2(self.sinDphiHat, self.f)
+        return np.arctan2(self.sin_dphi_hat, self.f)
 
     @cache_once_property
     def bDphi(self):
