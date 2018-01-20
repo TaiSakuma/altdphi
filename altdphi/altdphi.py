@@ -1,15 +1,28 @@
 # Tai Sakuma <tai.sakuma@gmail.com>
 import numpy as np
 
+from cache import cache_once_property
+
 ##__________________________________________________________________||
 class AltDphi(object):
     def __init__(self, pt, phi):
         self.pt = pt
         self.phi = phi
 
-    def f(self):
+    @cache_once_property
+    def px(self):
         px = self.pt*np.cos(self.phi)
+        return px
+
+    @cache_once_property
+    def py(self):
         py = self.pt*np.sin(self.phi)
+        return py
+
+    @cache_once_property
+    def f(self):
+        px = self.px
+        py = self.py
 
         # MHT
         mhtx = -np.sum(px)

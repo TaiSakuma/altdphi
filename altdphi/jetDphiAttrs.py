@@ -112,7 +112,7 @@ class jetDphiAttrs(object):
 
         # f
         f = pt/mht
-        f = alt.f()
+        f = alt.f
         self.f[:] = f
 
         arccotF = np.arctan2(1, f)
