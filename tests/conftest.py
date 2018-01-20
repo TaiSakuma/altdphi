@@ -14,7 +14,7 @@ from altdphi.xi import xi
 @pytest.fixture(scope = 'session')
 def tbl_scan_event():
     tbl_path = os.path.join(os.path.dirname(__file__), 'data', 'tbl_scan_event.txt')
-    ret =  pd.read_table(tbl_path, delim_whitespace = True)
+    ret =  pd.read_table(tbl_path, delim_whitespace = True, index_col = 'evt')
 
     ## fix for monojet events
     ret.loc[ret.njet == 1, 'minChi'] = np.pi/2.0
@@ -23,7 +23,8 @@ def tbl_scan_event():
 @pytest.fixture(scope = 'session')
 def tbl_scan_jet():
     tbl_path = os.path.join(os.path.dirname(__file__), 'data', 'tbl_scan_jet.txt')
-    return pd.read_table(tbl_path, delim_whitespace = True)
+    ret = pd.read_table(tbl_path, delim_whitespace = True, index_col = 'evt')
+    return ret
 
 @pytest.fixture()
 def scribblers():

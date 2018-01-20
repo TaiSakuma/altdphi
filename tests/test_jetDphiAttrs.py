@@ -1,4 +1,6 @@
 # Tai Sakuma <tai.sakuma@gmail.com>
+import pandas as pd
+
 import pytest
 
 try:
@@ -15,24 +17,24 @@ def test_with_sample(tbl_scan_event, tbl_scan_jet, scribblers):
     for scribbler in scribblers:
         scribbler.begin(event)
 
-    varnames = (
-        'minbDphi', 'minOmega', 'minOmegaHat', 'minOmegaTilde',
+    varnames = [
+        'minbDphi',
+        'minOmega', 'minOmegaHat', 'minOmegaTilde',
         'minChi',
         # 'xi',
         'maxF'
-    )
+    ]
 
-    for iloc in range(len(tbl_scan_event.index)):
-        tbl_event = tbl_scan_event.iloc[iloc:(iloc + 1)]
-        evt = tbl_event.evt.tolist()[0]
-        tbl_jet = tbl_scan_jet[tbl_scan_jet.evt == evt]
+    for evt in tbl_scan_event.index:
+        tbl_event = tbl_scan_event.loc[evt]
+        tbl_jet = tbl_scan_jet.loc[[evt]]
         event.jet_pt[:] = tbl_jet.jet_pt.tolist()
         event.jet_phi[:] = tbl_jet.jet_phi.tolist()
         for scribbler in scribblers:
             scribbler.event(event)
 
         for varname in varnames:
-            expected = tbl_event[varname].tolist()[0]
+            expected = tbl_event[varname]
             actual = getattr(event, varname)[0]
             assert pytest.approx(expected, abs = 1e-6) == actual
 
