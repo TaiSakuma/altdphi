@@ -53,7 +53,7 @@ class AltDphi(object):
         return self.bDphi.min()
 
     @cache_once_property
-    def minOmega(self):
+    def min_omega(self):
         if self.omega.size == 0:
             return np.nan
         return self.omega.min()
