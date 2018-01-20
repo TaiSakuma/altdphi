@@ -33,7 +33,7 @@ class AltDphi(object):
         return self.omegaHat.min()
 
     @cache_once_property
-    def minChi(self):
+    def min_chi(self):
         if self.chi.size == 0:
             return np.nan
         return self.chi.min()

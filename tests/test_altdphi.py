@@ -19,7 +19,7 @@ def test_with_sample(tbl_scan_event, tbl_scan_jet):
         assert pytest.approx(tbl_event.minOmega, abs = 1e-6) == alt.minOmega
         assert pytest.approx(tbl_event.minOmegaHat, abs = 1e-6) == alt.min_omega_hat
         assert pytest.approx(tbl_event.minOmegaTilde, abs = 1e-6) == alt.min_omega_tilde
-        assert pytest.approx(tbl_event.minChi, abs = 1e-6) == alt.minChi
+        assert pytest.approx(tbl_event.minChi, abs = 1e-6) == alt.min_chi
         ## assert pytest.approx(tbl_event.xi, abs = 1e-6) == alt.xi
         assert pytest.approx(tbl_event.maxF, abs = 1e-6) == alt.maxF
 
@@ -48,7 +48,7 @@ def test_no_jet():
     assert np.isnan(alt.minOmega)
     assert np.isnan(alt.min_omega_hat)
     assert np.isnan(alt.min_omega_tilde)
-    assert np.isnan(alt.minChi)
+    assert np.isnan(alt.min_chi)
     assert np.isnan(alt.xi)
     assert np.isnan(alt.maxF)
 
@@ -77,7 +77,7 @@ def test_monojet():
     assert 0 == alt.minOmega
     assert np.pi/4 == alt.min_omega_hat
     assert 0 == alt.min_omega_tilde
-    assert np.pi/2 == alt.minChi
+    assert np.pi/2 == alt.min_chi
     ## assert np.pi/2 == alt.xi
     assert 1 == alt.maxF
 
