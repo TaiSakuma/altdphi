@@ -151,7 +151,7 @@ class AltDphi(object):
 
     @cache_once_property
     def g(self):
-        return np.maximum(self.cosDphi + self.f, 0)
+        return np.maximum(self.f + self.cosDphi, 0)
 
     @cache_once_property
     def sinDphiTilde(self):
