@@ -161,8 +161,11 @@ class AltDphi(object):
 
     @cache_once_property
     def dphiTilde(self):
-        # FIXME: with the definition in the paper <>
-        return np.arcsin(self.sinDphiTilde)
+        return np.where(
+            self.f + self.cosDphi >= 0,
+            self.dphi,
+            np.pi - np.arcsin(self.sinDphiTilde)
+        )
 
     @cache_once_property
     def omegaTilde(self):
