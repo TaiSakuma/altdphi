@@ -157,7 +157,6 @@ class AltDphi(object):
 
     @cache_once_property
     def sinDphiTilde(self):
-        # should be the same as np.where(f + cosDphi >= 0, sinDphi, sinDphi/sinbDphi)
         return np.sqrt(1 + (self.g - self.f)**2 - 2*(self.g - self.f)*self.cosDphi)
 
     @cache_once_property
