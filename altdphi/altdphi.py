@@ -175,11 +175,10 @@ class AltDphi(object):
 
     @cache_once_property
     def chi(self):
-        both_zero = np.where(self.sinDphiTilde == 0, np.where(self.k == 0, True, False), False)
         ret = np.where(
-            both_zero,                            ## np.arctan2(0, 0) returns 0
-            np.pi/2,                              ## but chi should be pi/2
-            np.arctan2(self.sinDphiTilde, self.k) ## when both sinDphiTilde and k are 0
+            (self.f == 1) & (self.cosDphi == -1),
+            np.pi/2,
+            np.arctan2(self.sinDphiTilde, self.k)
         )
         return ret
 
