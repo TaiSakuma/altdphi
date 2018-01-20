@@ -20,6 +20,61 @@ class AltDphi(object):
         )
 
     @cache_once_property
+    def minbDphi(self):
+        if self.bDphi.size == 0:
+            return np.nan
+        return self.bDphi.min()
+
+    @cache_once_property
+    def minOmega(self):
+        if self.omega.size == 0:
+            return np.nan
+        return self.omega.min()
+
+    @cache_once_property
+    def minOmegaHat(self):
+        if self.omegaHat.size == 0:
+            return np.nan
+        return self.omegaHat.min()
+
+    @cache_once_property
+    def minOmegaTilde(self):
+        if self.omegaTilde.size == 0:
+            return np.nan
+        return self.omegaTilde.min()
+
+    @cache_once_property
+    def minChi(self):
+        if self.chi.size == 0:
+            return np.nan
+        return self.chi.min()
+
+    @cache_once_property
+    def minDphiTilde(self):
+        if self.dphiTilde.size == 0:
+            return np.nan
+        return self.dphiTilde.min()
+
+    @cache_once_property
+    def maxF(self):
+        if self.f.size == 0:
+            return np.nan
+        return self.f.max()
+
+    @cache_once_property
+    def maxH(self):
+        if self.h.size == 0:
+            return np.nan
+        return self.h.max()
+
+    @cache_once_property
+    def xi(self):
+        if np.isnan(self.minDphiTilde):
+            return np.nan
+        sinMinDphiTilde = np.sin(self.minDphiTilde)
+        return np.arctan2(sinMinDphiTilde, self.maxH)
+
+    @cache_once_property
     def px(self):
         return self.pt*np.cos(self.phi)
 
