@@ -19,6 +19,33 @@ class AltDphi(object):
             ', '.join(['{} = {!r}'.format(n, v) for n, v in name_value_pairs]),
         )
 
+    ##______________________________________________________________||
+    @cache_once_property
+    def minOmegaTilde(self):
+        if self.omegaTilde.size == 0:
+            return np.nan
+        return self.omegaTilde.min()
+
+    @cache_once_property
+    def minOmegaHat(self):
+        if self.omegaHat.size == 0:
+            return np.nan
+        return self.omegaHat.min()
+
+    @cache_once_property
+    def minChi(self):
+        if self.chi.size == 0:
+            return np.nan
+        return self.chi.min()
+
+    @cache_once_property
+    def xi(self):
+        if np.isnan(self.minDphiTilde):
+            return np.nan
+        sinMinDphiTilde = np.sin(self.minDphiTilde)
+        return np.arctan2(sinMinDphiTilde, self.maxH)
+
+    ##______________________________________________________________||
     @cache_once_property
     def minbDphi(self):
         if self.bDphi.size == 0:
@@ -30,24 +57,6 @@ class AltDphi(object):
         if self.omega.size == 0:
             return np.nan
         return self.omega.min()
-
-    @cache_once_property
-    def minOmegaHat(self):
-        if self.omegaHat.size == 0:
-            return np.nan
-        return self.omegaHat.min()
-
-    @cache_once_property
-    def minOmegaTilde(self):
-        if self.omegaTilde.size == 0:
-            return np.nan
-        return self.omegaTilde.min()
-
-    @cache_once_property
-    def minChi(self):
-        if self.chi.size == 0:
-            return np.nan
-        return self.chi.min()
 
     @cache_once_property
     def minDphiTilde(self):
@@ -67,13 +76,7 @@ class AltDphi(object):
             return np.nan
         return self.h.max()
 
-    @cache_once_property
-    def xi(self):
-        if np.isnan(self.minDphiTilde):
-            return np.nan
-        sinMinDphiTilde = np.sin(self.minDphiTilde)
-        return np.arctan2(sinMinDphiTilde, self.maxH)
-
+    ##______________________________________________________________||
     @cache_once_property
     def px(self):
         return self.pt*np.cos(self.phi)
