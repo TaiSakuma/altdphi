@@ -28,6 +28,22 @@ def test_no_jet():
     pt = np.array([ ])
     phi = np.array([ ])
     alt = AltDphi(pt = pt, phi = phi)
+    assert [0.0] == alt.mht
+    assert [ ] == alt.pt.tolist()
+    assert [ ] == alt.phi.tolist()
+    assert [ ] == alt.dphi.tolist()
+    assert [ ] == alt.dphiHat.tolist()
+    assert [ ] == alt.dphiTilde.tolist()
+    assert [ ] == alt.bDphi.tolist()
+    assert [ ] == alt.omega.tolist()
+    assert [ ] == alt.omegaHat.tolist()
+    assert [ ] == alt.omegaTilde.tolist()
+    assert [ ] == alt.chi.tolist()
+    assert [ ] == alt.f.tolist()
+    assert [ ] == alt.g.tolist()
+    assert [ ] == alt.k.tolist()
+    assert [ ] == alt.h.tolist()
+    assert [ ] == alt.arccotF.tolist()
     assert np.isnan(alt.minbDphi)
     assert np.isnan(alt.minOmega)
     assert np.isnan(alt.minOmegaHat)
@@ -40,6 +56,23 @@ def test_monojet():
     pt = np.array([1514.21])
     phi = np.array([-1.042])
     alt = AltDphi(pt = pt, phi = phi)
+    pt = np.array([151.21])
+    assert [1514.21] == alt.mht
+    assert [1514.21] == alt.pt
+    assert [-1.042] == alt.phi
+    assert [np.pi] == alt.dphi
+    assert [np.pi/2] == alt.dphiHat
+    assert [np.pi] == alt.dphiTilde
+    assert [np.pi/2] == alt.bDphi
+    assert [0] == alt.omega
+    assert [np.pi/4] == alt.omegaHat
+    assert [0] == alt.omegaTilde
+    assert [np.pi/2] == alt.chi
+    assert [1] == alt.f
+    assert [0] == alt.g
+    assert [0] == alt.k
+    assert [1] == alt.h
+    assert [np.pi/4] == alt.arccotF
     assert np.pi/2 == alt.minbDphi
     assert 0 == alt.minOmega
     assert np.pi/4 == alt.minOmegaHat
