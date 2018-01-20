@@ -67,25 +67,6 @@ class jetDphiAttrs(object):
         if self.minJetPt is not None:
             idxs = [i for i in idxs if event_jet_pt[i] >= self.minJetPt]
 
-        if not idxs:
-            self.mht[:] = [0.0]
-            self.pt[:] = [ ]
-            self.phi[:] = [ ]
-            self.dphi[:] = [ ]
-            self.dphiHat[:] = [ ]
-            self.dphiTilde[:] = [ ]
-            self.bDphi[:] = [ ]
-            self.omega[:] = [ ]
-            self.omegaHat[:] = [ ]
-            self.omegaTilde[:] = [ ]
-            self.chi[:] = [ ]
-            self.f[:] = [ ]
-            self.g[:] = [ ]
-            self.k[:] = [ ]
-            self.h[:] = [ ]
-            self.arccotF[:] = [ ]
-            return
-
         # jet pT, phi, px, py
         self.pt[:] = [event_jet_pt[i] for i in idxs]
 

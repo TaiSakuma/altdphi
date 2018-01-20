@@ -123,6 +123,8 @@ class AltDphi(object):
 
     @cache_once_property
     def h(self):
+        if self.sinDphiTilde.size == 0:
+            return np.array([ ])
         return np.where(self.sinDphiTilde == self.sinDphiTilde.min(), self.f + self.g, self.f)
 
 ##__________________________________________________________________||
