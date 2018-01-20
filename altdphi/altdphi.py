@@ -142,14 +142,12 @@ class AltDphi(object):
 
     @cache_once_property
     def bDphi(self):
-        sqfc = np.sqrt(1 + self.f**2 + 2*self.f*self.cosDphi)
-        cosbDphi = (self.f + self.cosDphi)/np.where(sqfc == 0, 1, sqfc) ## cosbDphi is 0 when sqfc == 0
-                                                              ## np.where is used to avoid dividing by 0
-
-        cosbDphi = np.minimum(cosbDphi, 1.0)
-        cosbDphi = np.maximum(cosbDphi, -1.0)
-
-        return np.arccos(cosbDphi)
+        ret = np.where(
+            (self.f == 1) & (self.cosDphi == -1),
+            np.pi/2,
+            np.arctan2(self.sinDphi, self.f + self.cosDphi)
+        )
+        return ret
 
     @cache_once_property
     def g(self):
