@@ -122,7 +122,7 @@ class AltDphi(object):
 
     @cache_once_property
     def sinDphi(self):
-        return np.sin(self.dphi)
+        return np.sqrt(1 - self.cosDphi**2)
 
     @cache_once_property
     def dphiHat(self):
