@@ -43,7 +43,7 @@ class AltDphi(object):
         if np.isnan(self.min_dphi_tilde):
             return np.nan
         sinMinDphiTilde = np.sin(self.min_dphi_tilde)
-        return np.arctan2(sinMinDphiTilde, self.maxH)
+        return np.arctan2(sinMinDphiTilde, self.max_h)
 
     ##______________________________________________________________||
     @cache_once_property
@@ -71,7 +71,7 @@ class AltDphi(object):
         return self.f.max()
 
     @cache_once_property
-    def maxH(self):
+    def max_h(self):
         if self.h.size == 0:
             return np.nan
         return self.h.max()
