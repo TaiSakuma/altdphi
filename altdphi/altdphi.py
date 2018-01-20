@@ -27,7 +27,7 @@ class AltDphi(object):
         return self.omegaTilde.min()
 
     @cache_once_property
-    def minOmegaHat(self):
+    def min_omega_hat(self):
         if self.omegaHat.size == 0:
             return np.nan
         return self.omegaHat.min()
