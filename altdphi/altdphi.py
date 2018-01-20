@@ -114,7 +114,7 @@ class AltDphi(object):
         return np.arctan2(1, self.f)
 
     @cache_once_property
-    def cosDphi(self):
+    def cos_dphi(self):
         ret = (self.mhtx*self.px + self.mhty*self.py)/(self.mht*self.pt)
         ret = np.minimum(ret, 1.0)
         ret = np.maximum(ret, -1.0)
@@ -122,11 +122,11 @@ class AltDphi(object):
 
     @cache_once_property
     def dphi(self):
-        return np.arccos(self.cosDphi)
+        return np.arccos(self.cos_dphi)
 
     @cache_once_property
     def sinDphi(self):
-        return np.sqrt(1 - self.cosDphi**2)
+        return np.sqrt(1 - self.cos_dphi**2)
 
     ##______________________________________________________________||
     @cache_once_property
@@ -148,24 +148,24 @@ class AltDphi(object):
     @cache_once_property
     def bDphi(self):
         ret = np.where(
-            (self.f == 1) & (self.cosDphi == -1),
+            (self.f == 1) & (self.cos_dphi == -1),
             np.pi/2,
-            np.arctan2(self.sinDphi, self.f + self.cosDphi)
+            np.arctan2(self.sinDphi, self.f + self.cos_dphi)
         )
         return ret
 
     @cache_once_property
     def g(self):
-        return np.maximum(self.f + self.cosDphi, 0)
+        return np.maximum(self.f + self.cos_dphi, 0)
 
     @cache_once_property
     def sinDphiTilde(self):
-        return np.sqrt(1 + (self.g - self.f)**2 - 2*(self.g - self.f)*self.cosDphi)
+        return np.sqrt(1 + (self.g - self.f)**2 - 2*(self.g - self.f)*self.cos_dphi)
 
     @cache_once_property
     def dphiTilde(self):
         return np.where(
-            self.f + self.cosDphi >= 0,
+            self.f + self.cos_dphi >= 0,
             self.dphi,
             np.pi - np.arcsin(self.sinDphiTilde)
         )
@@ -181,7 +181,7 @@ class AltDphi(object):
     @cache_once_property
     def chi(self):
         ret = np.where(
-            (self.f == 1) & (self.cosDphi == -1),
+            (self.f == 1) & (self.cos_dphi == -1),
             np.pi/2,
             np.arctan2(self.sinDphiTilde, self.k)
         )
