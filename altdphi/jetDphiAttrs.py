@@ -67,7 +67,6 @@ class jetDphiAttrs(object):
         if self.minJetPt is not None:
             idxs = [i for i in idxs if event_jet_pt[i] >= self.minJetPt]
 
-        # jet pT, phi, px, py
         self.pt[:] = [event_jet_pt[i] for i in idxs]
 
         event_jet_phi = getattr(event, '{}_phi'.format(self.inJetPrefix))
