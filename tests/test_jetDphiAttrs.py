@@ -7,7 +7,7 @@ except ImportError:
     import mock
 
 ##__________________________________________________________________||
-def test_one(tbl_scan_event, tbl_scan_jet, scribblers):
+def test_with_sample(tbl_scan_event, tbl_scan_jet, scribblers):
     event = mock.MagicMock()
     event.jet_pt = [ ]
     event.jet_phi = [ ]
