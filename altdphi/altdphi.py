@@ -65,7 +65,7 @@ class AltDphi(object):
         return self.dphiTilde.min()
 
     @cache_once_property
-    def maxF(self):
+    def max_f(self):
         if self.f.size == 0:
             return np.nan
         return self.f.max()
