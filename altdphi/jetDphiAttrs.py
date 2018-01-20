@@ -96,73 +96,19 @@ class jetDphiAttrs(object):
         phi = np.array(self.phi)
 
         alt = AltDphi(pt = pt, phi = phi)
-
-        px = alt.px
-        py = alt.py
-
-        mhtx = alt.mhtx
-        mhty = alt.mhty
-        mht = alt.mht
-        self.mht[:] = [mht.item()]
-
-        # f
-        f = alt.f
-        self.f[:] = f
-
-        arccotF = alt.arccotF
-        self.arccotF[:] = arccotF
-
-        # Dphi
-        cosDphi = alt.cosDphi
-
-        dphi = alt.dphi
-        self.dphi[:] = dphi
-
-        sinDphi = alt.sinDphi
-
-        # Dphi hat
-        dphiHat = alt.dphiHat
-        self.dphiHat[:] = dphiHat
-
-        sinDphiHat = alt.sinDphiHat
-
-        # omega
-        omega = alt.omega
-        self.omega[:] = omega
-
-        # omega hat
-        omegaHat = alt.omegaHat
-        self.omegaHat[:] = omegaHat
-
-        bDphi = alt.bDphi
-        self.bDphi[:] = bDphi
-
-        sinbDphi = np.sin(bDphi)
-
-        # g
-        g = alt.g
-        self.g[:] = g
-
-        # Dphi tilde
-        sinDphiTilde = alt.sinDphiTilde
-
-        dphiTilde = alt.dphiTilde
-        self.dphiTilde[:] = dphiTilde
-
-        # omega tilde
-        omegaTilde = alt.omegaTilde
-        self.omegaTilde[:] = omegaTilde
-
-        # k
-        k = alt.k
-        self.k[:] = k
-
-        # chi
-        chi = alt.chi
-        self.chi[:] = chi
-
-        # h
-        h = alt.h
-        self.h[:] = h
+        self.mht[:] = [alt.mht.item()]
+        self.f[:] = alt.f
+        self.arccotF[:] = alt.arccotF
+        self.dphi[:] = alt.dphi
+        self.dphiHat[:] = alt.dphiHat
+        self.omega[:] = alt.omega
+        self.omegaHat[:] = alt.omegaHat
+        self.bDphi[:] = alt.bDphi
+        self.g[:] = alt.g
+        self.dphiTilde[:] = alt.dphiTilde
+        self.omegaTilde[:] = alt.omegaTilde
+        self.k[:] = alt.k
+        self.chi[:] = alt.chi
+        self.h[:] = alt.h
 
 ##__________________________________________________________________||
