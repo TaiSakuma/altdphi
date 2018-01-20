@@ -92,16 +92,14 @@ class AltDphi(object):
 
     @cache_once_property
     def mht(self):
-        mht = np.sqrt(self.mhtx**2 + self.mhty**2)
-
         if self.pt.size == 1:
             ## this makes mht and pt precisely the same
             ## for the monojet events and prevent k from
             ## slightly deviating from zero, which, in turn,
             ## makes chi pi/2 for the monojet events
-            mht = self.pt[0]
+            return self.pt[0]
 
-        return mht
+        return np.sqrt(self.mhtx**2 + self.mhty**2)
 
     @cache_once_property
     def f(self):
