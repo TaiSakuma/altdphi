@@ -21,7 +21,7 @@ class AltDphi(object):
 
     ##______________________________________________________________||
     @cache_once_property
-    def minOmegaTilde(self):
+    def min_omega_tilde(self):
         if self.omegaTilde.size == 0:
             return np.nan
         return self.omegaTilde.min()
