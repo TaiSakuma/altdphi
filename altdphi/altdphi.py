@@ -47,7 +47,7 @@ class AltDphi(object):
 
     ##______________________________________________________________||
     @cache_once_property
-    def minbDphi(self):
+    def min_dphi_star(self):
         if self.bDphi.size == 0:
             return np.nan
         return self.bDphi.min()
