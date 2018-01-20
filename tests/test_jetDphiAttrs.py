@@ -45,11 +45,32 @@ def test_no_jet(scribblers):
     for scribbler in scribblers:
         scribbler.begin(event)
 
+    ## 1st event: no jet
     event.jet_pt[:] = [ ]
     event.jet_phi[:] = [ ]
 
     for scribbler in scribblers:
         scribbler.event(event)
+
+    assert_event_no_jets(event)
+
+    ## 2nd event: with jets
+    event.jet_pt[:] = [960.07, 665.01]
+    event.jet_phi[:] = [-0.7945, 2.3411]
+
+    for scribbler in scribblers:
+        scribbler.event(event)
+
+    ## 3rd event: no jet again
+    event.jet_pt[:] = [ ]
+    event.jet_phi[:] = [ ]
+
+    for scribbler in scribblers:
+        scribbler.event(event)
+
+    assert_event_no_jets(event)
+
+def assert_event_no_jets(event):
 
     assert [0.0] == event.mht_jet40
     assert [ ] == event.jet40_pt
