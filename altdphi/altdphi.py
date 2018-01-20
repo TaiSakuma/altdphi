@@ -104,6 +104,7 @@ class AltDphi(object):
 
         return np.sqrt(self.mhtx**2 + self.mhty**2)
 
+    ##______________________________________________________________||
     @cache_once_property
     def f(self):
         return self.pt/self.mht
@@ -127,6 +128,7 @@ class AltDphi(object):
     def sinDphi(self):
         return np.sqrt(1 - self.cosDphi**2)
 
+    ##______________________________________________________________||
     @cache_once_property
     def dphiHat(self):
         return np.minimum(self.dphi, np.pi/2.0)
