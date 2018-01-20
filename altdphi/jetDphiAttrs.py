@@ -97,94 +97,72 @@ class jetDphiAttrs(object):
 
         alt = AltDphi(pt = pt, phi = phi)
 
-        px = pt*np.cos(phi)
-        py = pt*np.sin(phi)
+        px = alt.px
+        py = alt.py
 
-        # MHT
-        mhtx = -np.sum(px)
-        mhty = -np.sum(py)
-        mht = np.sqrt(mhtx**2 + mhty**2)
-        if pt.size == 1: mht = pt[0] ## this makes mht and pt precisely the same
-                                     ## for the monojet events and prevent k from
-                                     ## slightly deviating from zero, which, in turn,
-                                     ## makes chi pi/2 for the monojet events
+        mhtx = alt.mhtx
+        mhty = alt.mhty
+        mht = alt.mht
         self.mht[:] = [mht.item()]
 
         # f
-        f = pt/mht
         f = alt.f
         self.f[:] = f
 
-        arccotF = np.arctan2(1, f)
+        arccotF = alt.arccotF
         self.arccotF[:] = arccotF
 
         # Dphi
-        cosDphi = (mhtx*px + mhty*py)/(mht*pt)
-        cosDphi = np.minimum(cosDphi, 1.0)
-        cosDphi = np.maximum(cosDphi, -1.0)
+        cosDphi = alt.cosDphi
 
-        dphi = np.arccos(cosDphi)
+        dphi = alt.dphi
         self.dphi[:] = dphi
 
-        sinDphi = np.sin(dphi)
+        sinDphi = alt.sinDphi
 
         # Dphi hat
-        dphiHat = np.minimum(dphi, np.pi/2.0)
+        dphiHat = alt.dphiHat
         self.dphiHat[:] = dphiHat
 
-        sinDphiHat = np.sin(dphiHat)
-        cosDphiHat = np.cos(dphiHat)
+        sinDphiHat = alt.sinDphiHat
 
         # omega
-        omega = np.arctan2(sinDphi, f)
+        omega = alt.omega
         self.omega[:] = omega
 
         # omega hat
-        omegaHat = np.arctan2(sinDphiHat, f)
+        omegaHat = alt.omegaHat
         self.omegaHat[:] = omegaHat
 
-
-        # bDphi
-        sqfc = np.sqrt(1 + f**2 + 2*f*cosDphi)
-        cosbDphi = (f + cosDphi)/np.where(sqfc == 0, 1, sqfc) ## cosbDphi is 0 when sqfc == 0
-                                                              ## np.where is used to avoid dividing by 0
-
-        cosbDphi = np.minimum(cosbDphi, 1.0)
-        cosbDphi = np.maximum(cosbDphi, -1.0)
-
-        bDphi = np.arccos(cosbDphi)
+        bDphi = alt.bDphi
         self.bDphi[:] = bDphi
 
         sinbDphi = np.sin(bDphi)
 
         # g
-        g = np.maximum(cosDphi, -f)
+        g = alt.g
         self.g[:] = g
 
         # Dphi tilde
-        sinDphiTilde = np.sqrt(1 + g**2 - 2*g*cosDphi)
-        # should be the same as np.where(f + cosDphi >= 0, sinDphi, sinDphi/sinbDphi)
+        sinDphiTilde = alt.sinDphiTilde
 
-        dphiTilde = np.arcsin(sinDphiTilde)
+        dphiTilde = alt.dphiTilde
         self.dphiTilde[:] = dphiTilde
 
         # omega tilde
-        omegaTilde = np.arctan2(sinDphiTilde, f)
+        omegaTilde = alt.omegaTilde
         self.omegaTilde[:] = omegaTilde
 
         # k
-        k = np.minimum(f, f + g)
+        k = alt.k
         self.k[:] = k
 
         # chi
-        both_zero = np.where(sinDphiTilde == 0, np.where(k == 0, True, False), False)
-        chi = np.where(both_zero,                    ## np.arctan2(0, 0) returns 0
-                       np.pi/2,                      ## but chi should be pi/2
-                       np.arctan2(sinDphiTilde, k))  ## when both sinDphiTilde and k are 0
+        chi = alt.chi
         self.chi[:] = chi
 
         # h
-        h = np.where(sinDphiTilde == sinDphiTilde.min(), f + g, f)
+        h = alt.h
         self.h[:] = h
 
 ##__________________________________________________________________||
