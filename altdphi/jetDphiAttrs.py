@@ -78,7 +78,7 @@ class jetDphiAttrs(object):
         alt = AltDphi(pt = pt, phi = phi)
         self.mht[:] = [alt.mht.item()]
         self.f[:] = alt.f
-        self.arccotF[:] = alt.arccotF
+        self.arccotF[:] = alt.arccot_f
         self.dphi[:] = alt.dphi
         self.dphiHat[:] = alt.dphiHat
         self.omega[:] = alt.omega

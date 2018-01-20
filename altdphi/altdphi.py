@@ -110,7 +110,7 @@ class AltDphi(object):
         return self.pt/self.mht
 
     @cache_once_property
-    def arccotF(self):
+    def arccot_f(self):
         return np.arctan2(1, self.f)
 
     @cache_once_property

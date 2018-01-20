@@ -43,7 +43,7 @@ def test_no_jet():
     assert [ ] == alt.g.tolist()
     assert [ ] == alt.k.tolist()
     assert [ ] == alt.h.tolist()
-    assert [ ] == alt.arccotF.tolist()
+    assert [ ] == alt.arccot_f.tolist()
     assert np.isnan(alt.min_dphi_star)
     assert np.isnan(alt.min_omega)
     assert np.isnan(alt.min_omega_hat)
@@ -72,7 +72,7 @@ def test_monojet():
     assert [0] == alt.g
     assert [0] == alt.k
     assert [1] == alt.h
-    assert [np.pi/4] == alt.arccotF
+    assert [np.pi/4] == alt.arccot_f
     assert np.pi/2 == alt.min_dphi_star
     assert 0 == alt.min_omega
     assert np.pi/4 == alt.min_omega_hat
