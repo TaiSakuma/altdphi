@@ -6,9 +6,15 @@ class TargetAltDphi(object):
     def __init__(self, **contents):
         self.contents = contents
 
+    def __getattr__(self, name):
+        try:
+            return self.contents[name]
+        except KeyError:
+            raise AttributeError("'{}' object has no attribute '{}'".format(self.__class__.__name__, name))
+
     def assert_equal(self, other):
         for varname in self.contents:
-            target = self.contents[varname]
+            target = getattr(self, varname)
             actual = getattr(other, varname)
             try:
                 self._assert_value_equal(target, actual)
