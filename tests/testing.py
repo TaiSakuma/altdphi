@@ -2,7 +2,7 @@
 import numpy as np
 
 ##__________________________________________________________________||
-def assert_equal(expected, actual):
+def assert_altdphi_equal(expected, actual):
     for varname in expected.varnames:
         var_exp = getattr(expected, varname)
 

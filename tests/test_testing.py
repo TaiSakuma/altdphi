@@ -3,7 +3,7 @@ import numpy as np
 
 import pytest
 
-from .testing import assert_equal
+from .testing import assert_altdphi_equal
 from altdphi import AltDphi
 
 try:
@@ -12,7 +12,7 @@ except ImportError:
     import mock
 
 ##__________________________________________________________________||
-def test_assert_equal_simple():
+def test_assert_altdphi_equal_simple():
 
     pt = np.array([741.63,  498.69, 45.62])
     phi = np.array([-1.41,  1.81, 0.92])
@@ -20,9 +20,9 @@ def test_assert_equal_simple():
 
     target = mock.MagicMock(pt=pt, phi=phi, varnames=('pt', 'phi'))
 
-    assert_equal(target, alt)
+    assert_altdphi_equal(target, alt)
 
-def test_assert_equal_raise_different_value():
+def test_assert_altdphi_equal_raise_different_value():
 
     pt = np.array([741.63,  498.69, 45.62])
     phi = np.array([-1.41,  1.81, 0.92])
@@ -32,9 +32,9 @@ def test_assert_equal_raise_different_value():
     target = mock.MagicMock(pt=pt, phi=phi, varnames=('pt', 'phi'))
 
     with pytest.raises(AssertionError):
-        assert_equal(target, alt)
+        assert_altdphi_equal(target, alt)
 
-def test_assert_equal_raise_nonexistent_var():
+def test_assert_altdphi_equal_raise_nonexistent_var():
 
     pt = np.array([741.63,  498.69, 45.62])
     phi = np.array([-1.41,  1.81, 0.92])
@@ -44,6 +44,6 @@ def test_assert_equal_raise_nonexistent_var():
     target = mock.MagicMock(pt=pt, phi=phi, eta=eta, varnames=('pt', 'phi', 'eta'))
 
     with pytest.raises(AssertionError):
-        assert_equal(target, alt)
+        assert_altdphi_equal(target, alt)
 
 ##__________________________________________________________________||
