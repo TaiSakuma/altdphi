@@ -2,20 +2,20 @@
 import numpy as np
 
 ##__________________________________________________________________||
-def assert_equal(self, other):
-    for varname in self.contents:
-        target = getattr(self, varname)
-        actual = getattr(other, varname)
+def assert_equal(expected, actual):
+    for varname in expected.contents:
+        expected_var = getattr(expected, varname)
+        actual_var = getattr(actual, varname)
         try:
-            _assert_value_equal(target, actual)
+            _assert_value_equal(expected_var, actual_var)
         except AssertionError as e:
-            e.args = ("\nassert target.{} == actual.{}{}".format(varname, varname, str(e)),)
+            e.args = ("\nassert expected.{} == actual.{}{}".format(varname, varname, str(e)),)
             raise AssertionError(e)
 
-def _assert_value_equal(v1, v2):
-    if isinstance(v1, np.ndarray):
-        np.testing.assert_equal(v1, v2)
+def _assert_value_equal(expected, actual):
+    if isinstance(expected, np.ndarray):
+        np.testing.assert_equal(expected, actual)
     else:
-        assert v1 == v2
+        assert expected == actual
 
 ##__________________________________________________________________||
