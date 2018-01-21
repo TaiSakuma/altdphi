@@ -12,7 +12,19 @@ except ImportError:
     import mock
 
 ##__________________________________________________________________||
-def test_assert_altdphi_equal_simple():
+def test_assert_altdphi_equal_with_real_altdphi():
+
+    pt = np.array([741.63,  498.69, 45.62])
+    phi = np.array([-1.41,  1.81, 0.92])
+    alt1 = AltDphi(pt=pt, phi=phi)
+
+    pt = np.array([741.63,  498.69, 45.62])
+    phi = np.array([-1.41,  1.81, 0.92])
+    alt2 = AltDphi(pt=pt, phi=phi)
+
+    assert_altdphi_equal(alt1, alt2)
+
+def test_assert_altdphi_equal_with_mock():
 
     pt = np.array([741.63,  498.69, 45.62])
     phi = np.array([-1.41,  1.81, 0.92])
@@ -22,6 +34,7 @@ def test_assert_altdphi_equal_simple():
 
     assert_altdphi_equal(target, alt)
 
+##__________________________________________________________________||
 def test_assert_altdphi_equal_raise_different_value():
 
     pt = np.array([741.63,  498.69, 45.62])

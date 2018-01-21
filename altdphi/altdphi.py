@@ -5,6 +5,25 @@ from cache import cache_once_property
 
 ##__________________________________________________________________||
 class AltDphi(object):
+    varnames = (
+        'pt', 'phi', 'px', 'py',
+        'mhtx', 'mhty', 'mht',
+        'cos_dphi', 'sin_dphi', 'dphi',
+        'f', 'arccot_f',
+        'dphi_star',
+        'sin_dphi_tilde', 'dphi_tilde', 'g',
+        'omega', 'omega_tilde',
+        'sin_dphi_hat', 'dphi_hat', 'omega_hat',
+        'k', 'chi',
+        'h',
+        'min_omega_tilde', 'min_omega_hat', 'min_chi',
+        'min_dphi_star',
+        'min_omega',
+        'min_dphi_tilde', 'min_sin_dphi_tilde',
+        'max_f', 'max_h',
+        'xi',
+    )
+
     def __init__(self, pt, phi):
         self.pt = pt
         self.phi = phi
@@ -109,14 +128,6 @@ class AltDphi(object):
 
     ##______________________________________________________________||
     @cache_once_property
-    def f(self):
-        return self.pt/self.mht
-
-    @cache_once_property
-    def arccot_f(self):
-        return np.arctan2(1, self.f)
-
-    @cache_once_property
     def cos_dphi(self):
         if self.pt.size == 1:
             return np.array([-1.0])
@@ -126,30 +137,22 @@ class AltDphi(object):
         return ret
 
     @cache_once_property
+    def sin_dphi(self):
+        return np.sqrt(1 - self.cos_dphi**2)
+
+    @cache_once_property
     def dphi(self):
         return np.arccos(self.cos_dphi)
 
     @cache_once_property
-    def sin_dphi(self):
-        return np.sqrt(1 - self.cos_dphi**2)
+    def f(self):
+        return self.pt/self.mht
+
+    @cache_once_property
+    def arccot_f(self):
+        return np.arctan2(1, self.f)
 
     ##______________________________________________________________||
-    @cache_once_property
-    def dphi_hat(self):
-        return np.minimum(self.dphi, np.pi/2.0)
-
-    @cache_once_property
-    def sin_dphi_hat(self):
-        return np.sin(self.dphi_hat)
-
-    @cache_once_property
-    def omega(self):
-        return np.arctan2(self.sin_dphi, self.f)
-
-    @cache_once_property
-    def omega_hat(self):
-        return np.arctan2(self.sin_dphi_hat, self.f)
-
     @cache_once_property
     def dphi_star(self):
         ret = np.where(
@@ -159,10 +162,7 @@ class AltDphi(object):
         )
         return ret
 
-    @cache_once_property
-    def g(self):
-        return np.maximum(self.f + self.cos_dphi, 0)
-
+    ##______________________________________________________________||
     @cache_once_property
     def sin_dphi_tilde(self):
         return np.sqrt(1 + (self.g - self.f)**2 - 2*(self.g - self.f)*self.cos_dphi)
@@ -176,9 +176,33 @@ class AltDphi(object):
         )
 
     @cache_once_property
+    def g(self):
+        return np.maximum(self.f + self.cos_dphi, 0)
+
+    ##______________________________________________________________||
+    @cache_once_property
+    def omega(self):
+        return np.arctan2(self.sin_dphi, self.f)
+
+    ##______________________________________________________________||
+    @cache_once_property
     def omega_tilde(self):
         return np.arctan2(self.sin_dphi_tilde, self.f)
 
+    ##______________________________________________________________||
+    @cache_once_property
+    def dphi_hat(self):
+        return np.minimum(self.dphi, np.pi/2.0)
+
+    @cache_once_property
+    def sin_dphi_hat(self):
+        return np.sin(self.dphi_hat)
+
+    @cache_once_property
+    def omega_hat(self):
+        return np.arctan2(self.sin_dphi_hat, self.f)
+
+    ##______________________________________________________________||
     @cache_once_property
     def k(self):
         return np.minimum(self.f, self.g)
@@ -192,6 +216,7 @@ class AltDphi(object):
         )
         return ret
 
+    ##______________________________________________________________||
     @cache_once_property
     def h(self):
         if self.sin_dphi_tilde.size == 0:
