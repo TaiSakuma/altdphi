@@ -18,6 +18,7 @@ def tbl_scan_event():
 
     ## fix for monojet events
     ret.loc[ret.njet == 1, 'minChi'] = np.pi/2.0
+    ret.loc[ret.njet == 1, 'xi'] = np.pi/2.0
     return ret
 
 @pytest.fixture(scope = 'session')

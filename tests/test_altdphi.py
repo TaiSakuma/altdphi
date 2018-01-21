@@ -20,7 +20,7 @@ def test_with_sample(tbl_scan_event, tbl_scan_jet):
         assert pytest.approx(tbl_event.minOmegaHat, abs = 1e-6) == alt.min_omega_hat
         assert pytest.approx(tbl_event.minOmegaTilde, abs = 1e-6) == alt.min_omega_tilde
         assert pytest.approx(tbl_event.minChi, abs = 1e-6) == alt.min_chi
-        ## assert pytest.approx(tbl_event.xi, abs = 1e-6) == alt.xi
+        assert pytest.approx(tbl_event.xi, abs = 1e-6) == alt.xi
         assert pytest.approx(tbl_event.maxF, abs = 1e-6) == alt.max_f
 
 
@@ -53,13 +53,14 @@ def test_no_jet():
     assert np.isnan(alt.max_f)
 
 def test_monojet():
-    pt = np.array([1514.21])
-    phi = np.array([-1.042])
+    pt = np.array([1514.21328255])
+    phi = np.array([-1.04235720634])
     alt = AltDphi(pt = pt, phi = phi)
-    pt = np.array([151.21])
-    assert [1514.21] == alt.mht
-    assert [1514.21] == alt.pt
-    assert [-1.042] == alt.phi
+    assert [1514.21328255] == alt.mht
+    assert [1514.21328255] == alt.pt
+    assert [-1.04235720634] == alt.phi
+    assert [1] == alt.f
+    assert [-1] == alt.cos_dphi
     assert [np.pi] == alt.dphi
     assert [np.pi/2] == alt.dphi_hat
     assert [np.pi] == alt.dphi_tilde
@@ -68,17 +69,16 @@ def test_monojet():
     assert [np.pi/4] == alt.omega_hat
     assert [0] == alt.omega_tilde
     assert [np.pi/2] == alt.chi
-    assert [1] == alt.f
     assert [0] == alt.g
     assert [0] == alt.k
-    assert [1] == alt.h
+    assert [0] == alt.h
     assert [np.pi/4] == alt.arccot_f
     assert np.pi/2 == alt.min_dphi_star
     assert 0 == alt.min_omega
     assert np.pi/4 == alt.min_omega_hat
     assert 0 == alt.min_omega_tilde
     assert np.pi/2 == alt.min_chi
-    ## assert np.pi/2 == alt.xi
+    assert np.pi/2 == alt.xi
     assert 1 == alt.max_f
 
 ##__________________________________________________________________||

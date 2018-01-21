@@ -40,10 +40,11 @@ class AltDphi(object):
 
     @cache_once_property
     def xi(self):
-        if np.isnan(self.min_dphi_tilde):
+        if np.isnan(self.min_sin_dphi_tilde):
             return np.nan
-        sin_min_dphi_tilde = np.sin(self.min_dphi_tilde)
-        return np.arctan2(sin_min_dphi_tilde, self.max_h)
+        if self.pt.size == 1:
+            return np.pi/2
+        return np.arctan2(self.min_sin_dphi_tilde, self.max_h)
 
     ##______________________________________________________________||
     @cache_once_property
@@ -63,6 +64,12 @@ class AltDphi(object):
         if self.dphi_tilde.size == 0:
             return np.nan
         return self.dphi_tilde.min()
+
+    @cache_once_property
+    def min_sin_dphi_tilde(self):
+        if self.sin_dphi_tilde.size == 0:
+            return np.nan
+        return self.sin_dphi_tilde.min()
 
     @cache_once_property
     def max_f(self):
@@ -96,12 +103,8 @@ class AltDphi(object):
     @cache_once_property
     def mht(self):
         if self.pt.size == 1:
-            ## this makes mht and pt precisely the same
-            ## for the monojet events and prevent k from
-            ## slightly deviating from zero, which, in turn,
-            ## makes chi pi/2 for the monojet events
+            ## make mht and pt precisely the same for monojet
             return self.pt[0]
-
         return np.sqrt(self.mhtx**2 + self.mhty**2)
 
     ##______________________________________________________________||
@@ -115,6 +118,8 @@ class AltDphi(object):
 
     @cache_once_property
     def cos_dphi(self):
+        if self.pt.size == 1:
+            return np.array([-1.0])
         ret = (self.mhtx*self.px + self.mhty*self.py)/(self.mht*self.pt)
         ret = np.minimum(ret, 1.0)
         ret = np.maximum(ret, -1.0)
