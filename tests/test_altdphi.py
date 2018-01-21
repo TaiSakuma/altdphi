@@ -3,7 +3,7 @@ import numpy as np
 
 import pytest
 
-from altdphi.altdphi import AltDphi
+from altdphi import AltDphi
 
 ##__________________________________________________________________||
 def test_with_sample(tbl_scan_event, tbl_scan_jet):
