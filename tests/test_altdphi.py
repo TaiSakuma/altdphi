@@ -81,24 +81,7 @@ def expected_altdphi_nojet():
         max_h = np.nan,
         xi = np.nan,
     )
-    ret.varnames = (
-        'pt', 'phi', 'px', 'py',
-        'mhtx', 'mhty', 'mht',
-        'cos_dphi', 'sin_dphi', 'dphi',
-        'f', 'arccot_f',
-        'dphi_star',
-        'sin_dphi_tilde', 'dphi_tilde', 'g',
-        'omega', 'omega_tilde',
-        'sin_dphi_hat', 'dphi_hat', 'omega_hat',
-        'k', 'chi',
-        'h',
-        'min_omega_tilde', 'min_omega_hat', 'min_chi',
-        'min_dphi_star',
-        'min_omega',
-        'min_dphi_tilde', 'min_sin_dphi_tilde',
-        'max_f', 'max_h',
-        'xi',
-    )
+    ret.varnames = AltDphi.varnames
     return ret
 
 def test_nojet(expected_altdphi_nojet):
@@ -108,33 +91,45 @@ def test_nojet(expected_altdphi_nojet):
     assert_altdphi_equal(expected_altdphi_nojet, actual)
 
 ##__________________________________________________________________||
-def test_monojet():
+@pytest.fixture()
+def expected_altdphi_monojet():
+    ret = mock.MagicMock(
+        cos_dphi = np.array([-1.0]),
+        sin_dphi = np.array([0.0]),
+        dphi = np.array([np.pi]),
+        f = np.array([1.0]),
+        arccot_f = np.array([np.pi/4]),
+        dphi_star = np.array([np.pi/2]),
+        sin_dphi_tilde = np.array([0.0]),
+        dphi_tilde = np.array([np.pi]),
+        g = np.array([0.0]),
+        omega = np.array([0.0]),
+        omega_tilde = np.array([0.0]),
+        sin_dphi_hat = np.array([1.0]),
+        dphi_hat = np.array([np.pi/2]),
+        omega_hat = np.array([np.pi/4]),
+        k = np.array([0.0]),
+        chi = np.array([np.pi/2]),
+        h = np.array([0.0]),
+        min_omega_tilde = 0.0,
+        min_omega_hat = np.pi/4,
+        min_chi = np.pi/2,
+        min_dphi_star = np.pi/2,
+        min_omega = 0.0,
+        min_dphi_tilde = np.pi,
+        min_sin_dphi_tilde = 0.0,
+        max_f = 1.0,
+        max_h = 0.0,
+        xi = np.pi/2,
+    )
+    varnames_not_totest = ('pt', 'phi', 'px', 'py', 'mhtx', 'mhty', 'mht')
+    ret.varnames = [n for n in AltDphi.varnames if n not in varnames_not_totest]
+    return ret
+
+def test_monojet(expected_altdphi_monojet):
     pt = np.array([1514.21328255])
     phi = np.array([-1.04235720634])
-    alt = AltDphi(pt = pt, phi = phi)
-    assert [1514.21328255] == alt.mht
-    assert [1514.21328255] == alt.pt
-    assert [-1.04235720634] == alt.phi
-    assert [1] == alt.f
-    assert [-1] == alt.cos_dphi
-    assert [np.pi] == alt.dphi
-    assert [np.pi/2] == alt.dphi_hat
-    assert [np.pi] == alt.dphi_tilde
-    assert [np.pi/2] == alt.dphi_star
-    assert [0] == alt.omega
-    assert [np.pi/4] == alt.omega_hat
-    assert [0] == alt.omega_tilde
-    assert [np.pi/2] == alt.chi
-    assert [0] == alt.g
-    assert [0] == alt.k
-    assert [0] == alt.h
-    assert [np.pi/4] == alt.arccot_f
-    assert np.pi/2 == alt.min_dphi_star
-    assert 0 == alt.min_omega
-    assert np.pi/4 == alt.min_omega_hat
-    assert 0 == alt.min_omega_tilde
-    assert np.pi/2 == alt.min_chi
-    assert np.pi/2 == alt.xi
-    assert 1 == alt.max_f
+    actual = AltDphi(pt = pt, phi = phi)
+    assert_altdphi_equal(expected_altdphi_monojet, actual)
 
 ##__________________________________________________________________||
