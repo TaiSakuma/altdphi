@@ -3,7 +3,7 @@ import numpy as np
 
 import pytest
 
-from .target import assert_equal
+from .testing import assert_equal
 from altdphi import AltDphi
 
 try:
