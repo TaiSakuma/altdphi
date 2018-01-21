@@ -25,11 +25,32 @@ def assert_altdphi_equal(expected, actual):
             raise AssertionError(e)
 
 def _assert_value_equal(expected, actual):
-    if isinstance(expected, np.ndarray):
+    if _is_ndarray(expected):
         _assert_value_equal_ndarray(expected, actual)
         return
 
+    if _is_scalar_nan(expected):
+        _assert_value_equal_nan(expected, actual)
+        return
+
     _assert_value_equal_else(expected, actual)
+
+def _is_ndarray(v):
+    return isinstance(v, np.ndarray)
+
+def _assert_value_equal_ndarray(expected, actual):
+    if not _is_ndarray(actual):
+        raise AssertionError
+    np.testing.assert_equal(expected, actual)
+
+def _is_scalar_nan(v):
+    if isinstance(v, float) and np.isnan(v):
+        return True
+    return False
+
+def _assert_value_equal_nan(expected, actual):
+    if not _is_scalar_nan(actual):
+        raise AssertionError
 
 def _assert_value_equal_else(expected, actual):
     assert pytest.approx(expected, abs = 1e-6) == actual
@@ -37,10 +58,5 @@ def _assert_value_equal_else(expected, actual):
     if expected not in to_be_exact:
         return
     assert expected == actual
-
-def _assert_value_equal_ndarray(expected, actual):
-    if not isinstance(actual, np.ndarray):
-        raise AssertionError
-    np.testing.assert_equal(expected, actual)
 
 ##__________________________________________________________________||
