@@ -6,15 +6,13 @@ def assert_equal(expected, actual):
     for varname in expected.varnames:
         var_exp = getattr(expected, varname)
 
-        if not hasattr(actual, varname):
-            message = "\nassert expected.{} == actual.{}\n{}".format(
-                varname, varname,
-                "'{}' object has no attribute '{}'".format(
-                    actual.__class__.__name__, varname)
+        try:
+            var_act = getattr(actual, varname)
+        except AttributeError as e:
+            e.args = ("\nassert expected.{} == actual.{}\n{}".format(
+                varname, varname, str(e)),
             )
-            raise AssertionError(message)
-
-        var_act = getattr(actual, varname)
+            raise AssertionError(e)
 
         try:
             _assert_value_equal(var_exp, var_act)
