@@ -86,7 +86,7 @@ class jetDphiAttrs(object):
         self.bDphi[:] = alt.dphi_star
         self.g[:] = alt.g
         self.dphiTilde[:] = alt.dphi_tilde
-        self.omegaTilde[:] = alt.omegaTilde
+        self.omegaTilde[:] = alt.omega_tilde
         self.k[:] = alt.k
         self.chi[:] = alt.chi
         self.h[:] = alt.h

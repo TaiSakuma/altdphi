@@ -22,9 +22,9 @@ class AltDphi(object):
     ##______________________________________________________________||
     @cache_once_property
     def min_omega_tilde(self):
-        if self.omegaTilde.size == 0:
+        if self.omega_tilde.size == 0:
             return np.nan
-        return self.omegaTilde.min()
+        return self.omega_tilde.min()
 
     @cache_once_property
     def min_omega_hat(self):
@@ -171,7 +171,7 @@ class AltDphi(object):
         )
 
     @cache_once_property
-    def omegaTilde(self):
+    def omega_tilde(self):
         return np.arctan2(self.sin_dphi_tilde, self.f)
 
     @cache_once_property
