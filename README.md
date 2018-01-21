@@ -11,7 +11,7 @@ from altdphi import AltDphi
 pt = np.array([741.63,  498.69, 45.62])
 phi = np.array([-1.41,  1.81, 0.92])
 
-alt = AltDphi(pt = pt, phi = phi)
+alt = AltDphi(pt=pt, phi=phi)
 
 alt.min_omega_tilde
 alt.min_omega_hat
