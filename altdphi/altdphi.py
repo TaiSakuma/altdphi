@@ -28,9 +28,9 @@ class AltDphi(object):
 
     @cache_once_property
     def min_omega_hat(self):
-        if self.omegaHat.size == 0:
+        if self.omega_hat.size == 0:
             return np.nan
-        return self.omegaHat.min()
+        return self.omega_hat.min()
 
     @cache_once_property
     def min_chi(self):
@@ -142,7 +142,7 @@ class AltDphi(object):
         return np.arctan2(self.sin_dphi, self.f)
 
     @cache_once_property
-    def omegaHat(self):
+    def omega_hat(self):
         return np.arctan2(self.sin_dphi_hat, self.f)
 
     @cache_once_property
