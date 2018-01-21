@@ -3,7 +3,7 @@ import numpy as np
 
 import pytest
 
-from .target import TargetAltDphi
+from .target import TargetAltDphi, assert_equal
 from altdphi import AltDphi
 
 try:
@@ -35,7 +35,7 @@ def test_assert_equal_simple():
 
     target = TargetAltDphi(pt=pt, phi=phi)
 
-    target.assert_equal(alt)
+    assert_equal(target, alt)
 
 def test_assert_equal_raise():
 
@@ -47,6 +47,6 @@ def test_assert_equal_raise():
     target = TargetAltDphi(pt=pt, phi=phi)
 
     with pytest.raises(AssertionError):
-        target.assert_equal(alt)
+        assert_equal(target, alt)
 
 ##__________________________________________________________________||

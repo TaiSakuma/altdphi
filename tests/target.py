@@ -12,20 +12,21 @@ class TargetAltDphi(object):
         except KeyError:
             raise AttributeError("'{}' object has no attribute '{}'".format(self.__class__.__name__, name))
 
-    def assert_equal(self, other):
-        for varname in self.contents:
-            target = getattr(self, varname)
-            actual = getattr(other, varname)
-            try:
-                self._assert_value_equal(target, actual)
-            except AssertionError as e:
-                e.args = ("\nassert target.{} == actual.{}{}".format(varname, varname, str(e)),)
-                raise AssertionError(e)
+##__________________________________________________________________||
+def assert_equal(self, other):
+    for varname in self.contents:
+        target = getattr(self, varname)
+        actual = getattr(other, varname)
+        try:
+            _assert_value_equal(target, actual)
+        except AssertionError as e:
+            e.args = ("\nassert target.{} == actual.{}{}".format(varname, varname, str(e)),)
+            raise AssertionError(e)
 
-    def _assert_value_equal(self, v1, v2):
-        if isinstance(v1, np.ndarray):
-            np.testing.assert_equal(v1, v2)
-        else:
-            assert v1 == v2
+def _assert_value_equal(v1, v2):
+    if isinstance(v1, np.ndarray):
+        np.testing.assert_equal(v1, v2)
+    else:
+        assert v1 == v2
 
 ##__________________________________________________________________||
