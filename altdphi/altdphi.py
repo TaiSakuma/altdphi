@@ -60,9 +60,9 @@ class AltDphi(object):
 
     @cache_once_property
     def min_dphi_tilde(self):
-        if self.dphiTilde.size == 0:
+        if self.dphi_tilde.size == 0:
             return np.nan
-        return self.dphiTilde.min()
+        return self.dphi_tilde.min()
 
     @cache_once_property
     def max_f(self):
@@ -163,7 +163,7 @@ class AltDphi(object):
         return np.sqrt(1 + (self.g - self.f)**2 - 2*(self.g - self.f)*self.cos_dphi)
 
     @cache_once_property
-    def dphiTilde(self):
+    def dphi_tilde(self):
         return np.where(
             self.f + self.cos_dphi >= 0,
             self.dphi,

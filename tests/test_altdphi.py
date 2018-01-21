@@ -33,7 +33,7 @@ def test_no_jet():
     assert [ ] == alt.phi.tolist()
     assert [ ] == alt.dphi.tolist()
     assert [ ] == alt.dphi_hat.tolist()
-    assert [ ] == alt.dphiTilde.tolist()
+    assert [ ] == alt.dphi_tilde.tolist()
     assert [ ] == alt.dphi_star.tolist()
     assert [ ] == alt.omega.tolist()
     assert [ ] == alt.omega_hat.tolist()
@@ -62,7 +62,7 @@ def test_monojet():
     assert [-1.042] == alt.phi
     assert [np.pi] == alt.dphi
     assert [np.pi/2] == alt.dphi_hat
-    assert [np.pi] == alt.dphiTilde
+    assert [np.pi] == alt.dphi_tilde
     assert [np.pi/2] == alt.dphi_star
     assert [0] == alt.omega
     assert [np.pi/4] == alt.omega_hat
