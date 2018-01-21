@@ -48,9 +48,9 @@ class AltDphi(object):
     ##______________________________________________________________||
     @cache_once_property
     def min_dphi_star(self):
-        if self.bDphi.size == 0:
+        if self.dphi_star.size == 0:
             return np.nan
-        return self.bDphi.min()
+        return self.dphi_star.min()
 
     @cache_once_property
     def min_omega(self):
@@ -146,7 +146,7 @@ class AltDphi(object):
         return np.arctan2(self.sin_dphi_hat, self.f)
 
     @cache_once_property
-    def bDphi(self):
+    def dphi_star(self):
         ret = np.where(
             (self.f == 1) & (self.cos_dphi == -1),
             np.pi/2,
