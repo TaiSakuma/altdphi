@@ -39,6 +39,8 @@ def _assert_value_equal_else(expected, actual):
     assert expected == actual
 
 def _assert_value_equal_ndarray(expected, actual):
+    if not isinstance(actual, np.ndarray):
+        raise AssertionError
     np.testing.assert_equal(expected, actual)
 
 ##__________________________________________________________________||

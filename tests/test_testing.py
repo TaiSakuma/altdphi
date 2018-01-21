@@ -91,3 +91,22 @@ def test_assert_value_equal_else_approx_faile(v1, v2):
         testing._assert_value_equal_else(v1, v2)
 
 ##__________________________________________________________________||
+@pytest.mark.parametrize(
+    'v1, v2', [
+        pytest.param(np.array([ ]), np.array([ ]), id='empty'),
+    ]
+)
+def test_assert_value_equal_ndarray_pass(v1, v2):
+    testing._assert_value_equal_ndarray(v1, v2)
+
+@pytest.mark.parametrize(
+    'v1, v2', [
+        pytest.param(np.array([ ]), np.float64(0.0), id='np.float64'),
+        pytest.param(np.array([ ]), np.nan, id='nan'),
+    ]
+)
+def test_assert_value_equal_ndarray_fail(v1, v2):
+    with pytest.raises(AssertionError):
+        testing._assert_value_equal_ndarray(v1, v2)
+
+##__________________________________________________________________||
