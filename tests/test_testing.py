@@ -61,3 +61,33 @@ def test_assert_altdphi_equal_raise_nonexistent_var():
         testing.assert_altdphi_equal(target, alt)
 
 ##__________________________________________________________________||
+@pytest.mark.parametrize(
+    'v1, v2', [
+        pytest.param(np.float64(0.0045), np.float64(0.0045)+1e-7, id='general'),
+        pytest.param(np.float64(0.0), np.float64(0.0), id='zero'),
+        pytest.param(np.float64(1.0), np.float64(1.0), id='one'),
+        pytest.param(np.float64(-1.0), np.float64(-1.0), id='minus_one'),
+        pytest.param(np.pi, np.pi, id='pi'),
+        pytest.param(np.pi/2, np.pi/2, id='pi_over_two'),
+        pytest.param(np.pi/4, np.pi/4, id='pi_over_four'),
+    ]
+)
+def test_assert_value_equal_else_approx_pass(v1, v2):
+    testing._assert_value_equal_else(v1, v2)
+
+@pytest.mark.parametrize(
+    'v1, v2', [
+        pytest.param(np.float64(0.0045), np.float64(0.0045)+1e-6, id='general'),
+        pytest.param(np.float64(0.0), np.float64(0.0)+1e-15, id='zero'),
+        pytest.param(np.float64(1.0), np.float64(1.0)+1e-15, id='one'),
+        pytest.param(np.float64(-1.0), np.float64(-1.0)+1e-15, id='minus_one'),
+        pytest.param(np.pi, np.pi+1e-15, id='pi'),
+        pytest.param(np.pi/2, np.pi/2+1e-15, id='pi_over_two'),
+        pytest.param(np.pi/4, np.pi/4+1e-15, id='pi_over_four'),
+    ]
+)
+def test_assert_value_equal_else_approx_faile(v1, v2):
+    with pytest.raises(AssertionError):
+        testing._assert_value_equal_else(v1, v2)
+
+##__________________________________________________________________||
