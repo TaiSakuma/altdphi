@@ -4,10 +4,10 @@ import numpy as np
 ##__________________________________________________________________||
 def assert_equal(expected, actual):
     for varname in expected.contents:
-        expected_var = getattr(expected, varname)
-        actual_var = getattr(actual, varname)
+        var_exp = getattr(expected, varname)
+        var_act = getattr(actual, varname)
         try:
-            _assert_value_equal(expected_var, actual_var)
+            _assert_value_equal(var_exp, var_act)
         except AssertionError as e:
             e.args = ("\nassert expected.{} == actual.{}{}".format(varname, varname, str(e)),)
             raise AssertionError(e)
