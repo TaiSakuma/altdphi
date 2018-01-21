@@ -42,8 +42,8 @@ class AltDphi(object):
     def xi(self):
         if np.isnan(self.min_dphi_tilde):
             return np.nan
-        sinMinDphiTilde = np.sin(self.min_dphi_tilde)
-        return np.arctan2(sinMinDphiTilde, self.max_h)
+        sin_min_dphi_tilde = np.sin(self.min_dphi_tilde)
+        return np.arctan2(sin_min_dphi_tilde, self.max_h)
 
     ##______________________________________________________________||
     @cache_once_property
