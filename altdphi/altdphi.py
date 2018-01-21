@@ -159,7 +159,7 @@ class AltDphi(object):
         return np.maximum(self.f + self.cos_dphi, 0)
 
     @cache_once_property
-    def sinDphiTilde(self):
+    def sin_dphi_tilde(self):
         return np.sqrt(1 + (self.g - self.f)**2 - 2*(self.g - self.f)*self.cos_dphi)
 
     @cache_once_property
@@ -167,12 +167,12 @@ class AltDphi(object):
         return np.where(
             self.f + self.cos_dphi >= 0,
             self.dphi,
-            np.pi - np.arcsin(self.sinDphiTilde)
+            np.pi - np.arcsin(self.sin_dphi_tilde)
         )
 
     @cache_once_property
     def omegaTilde(self):
-        return np.arctan2(self.sinDphiTilde, self.f)
+        return np.arctan2(self.sin_dphi_tilde, self.f)
 
     @cache_once_property
     def k(self):
@@ -183,14 +183,14 @@ class AltDphi(object):
         ret = np.where(
             (self.f == 1) & (self.cos_dphi == -1),
             np.pi/2,
-            np.arctan2(self.sinDphiTilde, self.k)
+            np.arctan2(self.sin_dphi_tilde, self.k)
         )
         return ret
 
     @cache_once_property
     def h(self):
-        if self.sinDphiTilde.size == 0:
+        if self.sin_dphi_tilde.size == 0:
             return np.array([ ])
-        return np.where(self.sinDphiTilde == self.sinDphiTilde.min(), self.f + self.g, self.f)
+        return np.where(self.sin_dphi_tilde == self.sin_dphi_tilde.min(), self.f + self.g, self.f)
 
 ##__________________________________________________________________||
