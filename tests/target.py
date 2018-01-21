@@ -3,13 +3,25 @@ import numpy as np
 
 ##__________________________________________________________________||
 def assert_equal(expected, actual):
-    for varname in expected.contents:
+    for varname in expected.varnames:
         var_exp = getattr(expected, varname)
+
+        if not hasattr(actual, varname):
+            message = "\nassert expected.{} == actual.{}\n{}".format(
+                varname, varname,
+                "'{}' object has no attribute '{}'".format(
+                    actual.__class__.__name__, varname)
+            )
+            raise AssertionError(message)
+
         var_act = getattr(actual, varname)
+
         try:
             _assert_value_equal(var_exp, var_act)
         except AssertionError as e:
-            e.args = ("\nassert expected.{} == actual.{}{}".format(varname, varname, str(e)),)
+            e.args = ("\nassert expected.{} == actual.{}\n{}".format(
+                varname, varname, str(e)),
+            )
             raise AssertionError(e)
 
 def _assert_value_equal(expected, actual):
