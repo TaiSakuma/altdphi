@@ -33,7 +33,7 @@ def test_assert_equal_simple():
     phi = np.array([-1.41,  1.81, 0.92])
     alt = AltDphi(pt=pt, phi=phi)
 
-    target = TargetAltDphi(pt=pt, phi=phi)
+    target = mock.MagicMock(pt=pt, phi=phi, contents=('pt', 'phi'))
 
     assert_equal(target, alt)
 
@@ -44,7 +44,7 @@ def test_assert_equal_raise():
     alt = AltDphi(pt=pt, phi=phi)
 
     phi = np.array([-1.41,  1.81, 0.93])
-    target = TargetAltDphi(pt=pt, phi=phi)
+    target = mock.MagicMock(pt=pt, phi=phi, contents=('pt', 'phi'))
 
     with pytest.raises(AssertionError):
         assert_equal(target, alt)
