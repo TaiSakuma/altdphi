@@ -191,6 +191,9 @@ class AltDphi(object):
     def h(self):
         if self.sin_dphi_tilde.size == 0:
             return np.array([ ])
-        return np.where(self.sin_dphi_tilde == self.sin_dphi_tilde.min(), self.f + self.g, self.f)
+        return np.where(
+            self.sin_dphi_tilde == self.sin_dphi_tilde.min(),
+            self.g, self.f
+        )
 
 ##__________________________________________________________________||
