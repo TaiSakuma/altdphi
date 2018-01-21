@@ -3,28 +3,13 @@ import numpy as np
 
 import pytest
 
-from .target import TargetAltDphi, assert_equal
+from .target import assert_equal
 from altdphi import AltDphi
 
 try:
     import unittest.mock as mock
 except ImportError:
     import mock
-
-##__________________________________________________________________||
-def test_attributes():
-    pt = mock.MagicMock()
-    phi = mock.MagicMock()
-    target = TargetAltDphi(pt=pt, phi=phi)
-    assert pt is target.pt
-    assert phi is target.phi
-
-def test_attributes_raise():
-    pt = mock.MagicMock()
-    phi = mock.MagicMock()
-    target = TargetAltDphi(pt=pt, phi=phi)
-    with pytest.raises(AttributeError):
-        target.eta
 
 ##__________________________________________________________________||
 def test_assert_equal_simple():

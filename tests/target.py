@@ -2,17 +2,6 @@
 import numpy as np
 
 ##__________________________________________________________________||
-class TargetAltDphi(object):
-    def __init__(self, **contents):
-        self.contents = contents
-
-    def __getattr__(self, name):
-        try:
-            return self.contents[name]
-        except KeyError:
-            raise AttributeError("'{}' object has no attribute '{}'".format(self.__class__.__name__, name))
-
-##__________________________________________________________________||
 def assert_equal(self, other):
     for varname in self.contents:
         target = getattr(self, varname)
