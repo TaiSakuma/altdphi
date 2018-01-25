@@ -3,6 +3,15 @@
 A Python library for calculating alternative angular variables to
 Delta phi in SUSY searches at LHC
 
+
+## Install
+
+```python
+pip install altdphi
+```
+
+## How to use
+
 ```python
 import numpy as np
 from altdphi import AltDphi
