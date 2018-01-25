@@ -18,7 +18,7 @@ from .expected import *
         pytest.param(four_jets, altdphi_four_jets, id='four_jets'),
     ]
 )
-def test_monojet(jets, expected):
+def test_altdphi(jets, expected):
     pt = np.array(jets['pt'])
     phi = np.array(jets['phi'])
     actual = AltDphi(pt=pt, phi=phi)
