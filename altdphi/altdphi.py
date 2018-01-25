@@ -38,6 +38,14 @@ class AltDphi(object):
             ', '.join(['{}={!r}'.format(n, v) for n, v in name_value_pairs]),
         )
 
+    def __str__(self):
+        len_varname = max(len(n) for n in self.varnames)
+        ret = '{!r}:'.format(self) + '\n'
+        ret = ret + '\n'.join(
+            ['    {:>{}}: {}'.format(n, len_varname, str(getattr(self, n))) for n in self.varnames]
+        )
+        return ret
+
     ##______________________________________________________________||
     @cache_once_property
     def min_omega_tilde(self):
