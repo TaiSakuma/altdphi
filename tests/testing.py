@@ -53,7 +53,7 @@ def _assert_value_equal_nan(expected, actual):
         raise AssertionError
 
 def _assert_value_equal_else(expected, actual):
-    assert pytest.approx(expected, abs = 1e-6) == actual
+    assert pytest.approx(expected, abs=1e-6) == actual
     to_be_exact = (0.0, 1.0, -1.0, np.pi, np.pi/2, np.pi/4)
     if expected not in to_be_exact:
         return

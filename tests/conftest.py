@@ -19,7 +19,7 @@ def tbl_scan_event():
 @pytest.fixture(scope = 'session')
 def tbl_scan_jet():
     tbl_path = os.path.join(os.path.dirname(__file__), 'data', 'tbl_scan_jet.txt')
-    ret = pd.read_table(tbl_path, delim_whitespace = True, index_col = 'evt')
+    ret = pd.read_table(tbl_path, delim_whitespace=True, index_col='evt')
     return ret
 
 ##__________________________________________________________________||
