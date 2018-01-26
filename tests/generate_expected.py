@@ -93,9 +93,9 @@ def compose_expected_as_string(event_dict, njet_name_dict):
         alt = AltDphi(pt=pt, phi=phi)
         dumped = dump_altdphi(alt)
         lines = ''
-        lines = lines + '{} = dict(\n'.format(njet_name)
-        lines = lines + '    pt =  [' + ', '.join(['{!r}'.format(v) for v in pt]) + '],\n'
-        lines = lines + '    phi = [' + ', '.join(['{!r}'.format(v) for v in phi]) + '],\n'
+        lines = lines + 'event_{} = dict(\n'.format(njet_name)
+        lines = lines + '    jet_pt =  [' + ', '.join(['{!r}'.format(v) for v in pt]) + '],\n'
+        lines = lines + '    jet_phi = [' + ', '.join(['{!r}'.format(v) for v in phi]) + '],\n'
         lines = lines + '    met = {!r}'.format(met) + ',\n'
         lines = lines + '    met_phi = {!r}'.format(met_phi) + ',\n'
         lines = lines + ')\n'

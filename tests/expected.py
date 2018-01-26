@@ -6,9 +6,9 @@ try:
 except ImportError:
     import mock
 
-nojet = dict(
-    pt =  [],
-    phi = [],
+event_nojet = dict(
+    jet_pt =  [],
+    jet_phi = [],
     met = 10.12,
     met_phi = 2.41,
 )
@@ -51,9 +51,9 @@ altdphi_nojet = mock.MagicMock(
     varnames=('pt', 'phi', 'px', 'py', 'mhtx', 'mhty', 'mht', 'cos_dphi', 'sin_dphi', 'dphi', 'f', 'arccot_f', 'dphi_star', 'sin_dphi_tilde', 'dphi_tilde', 'g', 'omega', 'omega_tilde', 'sin_dphi_hat', 'dphi_hat', 'omega_hat', 'k', 'chi', 'h', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'max_f', 'max_h', 'xi')
 )
 
-monojet = dict(
-    pt =  [1514.21328255],
-    phi = [-1.04235720634],
+event_monojet = dict(
+    jet_pt =  [1514.21328255],
+    jet_phi = [-1.04235720634],
     met = 1516.06733938,
     met_phi = 2.1209885772199999,
 )
@@ -96,9 +96,9 @@ altdphi_monojet = mock.MagicMock(
     varnames=('pt', 'phi', 'px', 'py', 'mhtx', 'mhty', 'mht', 'cos_dphi', 'sin_dphi', 'dphi', 'f', 'arccot_f', 'dphi_star', 'sin_dphi_tilde', 'dphi_tilde', 'g', 'omega', 'omega_tilde', 'sin_dphi_hat', 'dphi_hat', 'omega_hat', 'k', 'chi', 'h', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'max_f', 'max_h', 'xi')
 )
 
-two_jets = dict(
-    pt =  [960.07442533800008, 665.01245243300002],
-    phi = [-0.7945216894149999, 2.34113693237],
+event_two_jets = dict(
+    jet_pt =  [960.07442533800008, 665.01245243300002],
+    jet_phi = [-0.7945216894149999, 2.34113693237],
     met = 247.598990415,
     met_phi = 2.4665059836999998,
 )
@@ -141,9 +141,9 @@ altdphi_two_jets = mock.MagicMock(
     varnames=('pt', 'phi', 'px', 'py', 'mhtx', 'mhty', 'mht', 'cos_dphi', 'sin_dphi', 'dphi', 'f', 'arccot_f', 'dphi_star', 'sin_dphi_tilde', 'dphi_tilde', 'g', 'omega', 'omega_tilde', 'sin_dphi_hat', 'dphi_hat', 'omega_hat', 'k', 'chi', 'h', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'max_f', 'max_h', 'xi')
 )
 
-three_jets = dict(
-    pt =  [741.63020528100003, 498.69413552399999, 45.618094886199998],
-    phi = [-1.4075391292599999, 1.80534005165, 0.92224723100700001],
+event_three_jets = dict(
+    jet_pt =  [741.63020528100003, 498.69413552399999, 45.618094886199998],
+    jet_phi = [-1.4075391292599999, 1.80534005165, 0.92224723100700001],
     met = 264.16527110599998,
     met_phi = 1.4472301066,
 )
@@ -186,9 +186,9 @@ altdphi_three_jets = mock.MagicMock(
     varnames=('pt', 'phi', 'px', 'py', 'mhtx', 'mhty', 'mht', 'cos_dphi', 'sin_dphi', 'dphi', 'f', 'arccot_f', 'dphi_star', 'sin_dphi_tilde', 'dphi_tilde', 'g', 'omega', 'omega_tilde', 'sin_dphi_hat', 'dphi_hat', 'omega_hat', 'k', 'chi', 'h', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'max_f', 'max_h', 'xi')
 )
 
-four_jets = dict(
-    pt =  [1149.6097441899999, 794.66333850199999, 251.60360768599998, 94.489262719199999],
-    phi = [-1.3205472230899999, 2.75383090973, 0.87212467193599996, -2.7706322669999999],
+event_four_jets = dict(
+    jet_pt =  [1149.6097441899999, 794.66333850199999, 251.60360768599998, 94.489262719199999],
+    jet_phi = [-1.3205472230899999, 2.75383090973, 0.87212467193599996, -2.7706322669999999],
     met = 783.5435622739999,
     met_phi = 1.0195695580799999,
 )
