@@ -32,7 +32,8 @@ def main():
         1: 'monojet',
         2: 'two_jets',
         3: 'three_jets',
-        4: 'four_jets'
+        4: 'four_jets',
+       12: 'twelve_jets'
     }
 
     event_dict = correct_event_data(njet_name_dict)
@@ -92,6 +93,8 @@ def compose_expected_as_string(event_dict, njet_name_dict):
         met_phi = event['met_phi']
         alt = AltDphi(pt=pt, phi=phi)
         dumped = dump_altdphi(alt)
+        alt_met = AltDphi(pt=pt, phi=phi, mht=met, mht_phi=met_phi)
+        dumped_met = dump_altdphi(alt_met)
         lines = ''
         lines = lines + 'event_{} = dict(\n'.format(njet_name)
         lines = lines + '    jet_pt =  [' + ', '.join(['{!r}'.format(v) for v in pt]) + '],\n'
@@ -101,6 +104,8 @@ def compose_expected_as_string(event_dict, njet_name_dict):
         lines = lines + ')\n'
         lines = lines + '\n'
         lines = lines + 'altdphi_{} = {}\n'.format(njet_name, dumped)
+        lines = lines + '\n'
+        lines = lines + 'altdphi_met_{} = {}\n'.format(njet_name, dumped_met)
         contents.append(lines)
 
     return '\n'.join(contents)
