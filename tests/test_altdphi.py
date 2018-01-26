@@ -9,20 +9,25 @@ from .testing import assert_altdphi_equal
 from .expected import *
 
 ##__________________________________________________________________||
-@pytest.mark.parametrize(
-    'jets, expected', [
-        pytest.param(nojet, altdphi_nojet, id='nojet'),
-        pytest.param(monojet, altdphi_monojet, id='monojet'),
-        pytest.param(two_jets, altdphi_two_jets, id='two_jets'),
-        pytest.param(three_jets, altdphi_three_jets, id='three_jets'),
-        pytest.param(four_jets, altdphi_four_jets, id='four_jets'),
-    ]
+@pytest.fixture(
+    params=[
+        (event_nojet, altdphi_nojet),
+        (event_monojet, altdphi_monojet),
+        (event_two_jets, altdphi_two_jets),
+        (event_three_jets, altdphi_three_jets),
+        (event_four_jets, altdphi_four_jets),
+    ],
+    ids=('nojet', 'monojet', 'two_jets', 'three_jets', 'four_jets')
 )
-def test_altdphi(jets, expected):
-    pt = np.array(jets['pt'])
-    phi = np.array(jets['phi'])
-    actual = AltDphi(pt=pt, phi=phi)
+def event_altdphi(request):
+    return request.param
 
-    assert_altdphi_equal(expected, actual)
+def test_altdphi(event_altdphi):
+    event, expected_altdphi = event_altdphi
+    pt = np.array(event['jet_pt'])
+    phi = np.array(event['jet_phi'])
+    actual_altdphi = AltDphi(pt=pt, phi=phi)
+
+    assert_altdphi_equal(expected_altdphi, actual_altdphi)
 
 ##__________________________________________________________________||
