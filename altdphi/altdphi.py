@@ -24,9 +24,16 @@ class AltDphi(object):
         'xi',
     )
 
-    def __init__(self, pt, phi):
+    def __init__(self, pt, phi, mht=None, mht_phi=None):
         self.pt = pt
         self.phi = phi
+
+        self.monojet_is_minus_mht = mht is None and pt.size == 1
+
+        if mht is not None:
+            self.mht = mht
+            self.mhtx = mht*np.cos(mht_phi)
+            self.mhty = mht*np.sin(mht_phi)
 
     def __repr__(self):
         name_value_pairs = (
@@ -69,7 +76,7 @@ class AltDphi(object):
     def xi(self):
         if np.isnan(self.min_sin_dphi_tilde):
             return np.nan
-        if self.pt.size == 1:
+        if self.monojet_is_minus_mht:
             return np.pi/2
         return np.arctan2(self.min_sin_dphi_tilde, self.max_h)
 
@@ -129,7 +136,7 @@ class AltDphi(object):
 
     @cache_once_property
     def mht(self):
-        if self.pt.size == 1:
+        if self.monojet_is_minus_mht:
             ## make mht and pt precisely the same for monojet
             return self.pt[0]
         return np.sqrt(self.mhtx**2 + self.mhty**2)
@@ -137,7 +144,7 @@ class AltDphi(object):
     ##______________________________________________________________||
     @cache_once_property
     def cos_dphi(self):
-        if self.pt.size == 1:
+        if self.monojet_is_minus_mht:
             return np.array([-1.0])
         ret = (self.mhtx*self.px + self.mhty*self.py)/(self.mht*self.pt)
         ret = np.minimum(ret, 1.0)
