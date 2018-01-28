@@ -1,7 +1,7 @@
 # Tai Sakuma <tai.sakuma@gmail.com>
 import numpy as np
 
-from cache import cache_once_property
+from .cache import cache_once_property
 
 ##__________________________________________________________________||
 class AltDphi(object):
