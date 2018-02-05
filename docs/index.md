@@ -3,7 +3,7 @@
 A Python library for calculating alternative angular variables to
 \\(\Delta\varphi\\) in SUSY searches at LHC
 
----
+*****
 
 - [Introduction](#introduction)
 - [Requirement](#requirement)
@@ -15,7 +15,7 @@ A Python library for calculating alternative angular variables to
     - [A simple example](#a-simple-example)
     - [Use MET instead of MHT](#use-met-instead-of-mht)
 
----
+*****
 
 ## Introduction
 
@@ -24,14 +24,14 @@ alternative angular variables for suppression of QCD multijet events
 in SUSY searches at LHC. The variables are introduced in
 arXiv:18xx.xxxxx. This page quickly explains how to use altdphi.
 
----
+*****
 
 ## Requirement
 
 - Python 2.7 or 3.6
 - [NumPy](http://www.numpy.org/)
 
----
+*****
 
 ## Install
 
@@ -60,7 +60,7 @@ command in the same directory you ran `git clone` command.
 $ export PYTHONPATH=$PWD/altdphi:$PYTHONPATH
 ```
 
----
+*****
 
 ## How to use
 
