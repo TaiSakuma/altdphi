@@ -81,7 +81,7 @@ This example uses python 3. If you are using python 2, you can import
 `print_function` from ` __future__` so that the `print` command in the
 example works as shown.
 
-```bash
+```python
 >>> from __future__ import print_function
 ```
 
