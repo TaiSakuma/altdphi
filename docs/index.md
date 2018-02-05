@@ -5,6 +5,20 @@ A Python library for calculating alternative angular variables to
 
 ---
 
+- [Introduction](#introduction)
+- [Requirement](#requirement)
+- [Install](#install)
+    - [with pip](#with-pip)
+    - [with git](#with-git)
+- [How to use](#how-to-use)
+    - [Launch python and import libraries](#launch-python-and-import-libraries)
+    - [A simple example](#a-simple-example)
+    - [Use MET instead of MHT](#use-met-instead-of-mht)
+
+---
+
+## Introduction
+
 The python library *altdphi* contains code to calculate the
 alternative angular variables for suppression of QCD multijet events
 in SUSY searches at LHC. The variables are introduced in
@@ -12,25 +26,25 @@ arXiv:18xx.xxxxx. This page quickly explains how to use altdphi.
 
 ---
 
-<h2>Requirement</h2>
+## Requirement
 
 - Python 2.7 or 3.6
 - [NumPy](http://www.numpy.org/)
 
 ---
 
-<h2>Install</h2>
+## Install
 
 You can install with `pip` or create a clone with `git` from github.
 
-<h3>with pip</h3>
+### with pip
 
 
 ```bash
 $ pip install altdphi
 ```
 
-<h3>with git</h3>
+### with git
 
 ```bash
 $ git clone git@github.com:TaiSakuma/altdphi.git
@@ -48,11 +62,11 @@ $ export PYTHONPATH=$PWD/altdphi:$PYTHONPATH
 
 ---
 
-<h2>How to use</h2>
+## How to use
 
 Here, we will quickly shows how to use altdphi interactively as an example.
 
-<h3>Launch python and import libraries</h3>
+### Launch python and import libraries
 
 Start python:
 ```bash
@@ -79,7 +93,7 @@ Import `numpy` and `altdphi`:
 
 We are ready to start using altdphi.
 
-<h3>A simple example</h3>
+### A simple example
 
 Suppose an event has three jets.
 And their \\(p\_{\text{T}i}\\) are 741.63, 498.69,
@@ -161,7 +175,7 @@ AltDphi(pt=array([ 741.63,  498.69,   45.62]), phi=array([-1.41,  1.81,  0.92]))
                     xi: 0.0112922228279
 ```
 
-<h3>Use MET instead of MHT</h3>
+### Use MET instead of MHT
 
 In the above example, the `AltDphi` object was initialized with `pt`
 and `phi`. MHT was calculated based on the `pt` and `phi`. `AltDphi`
