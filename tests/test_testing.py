@@ -103,7 +103,7 @@ def test_assert_value_equal_ndarray_fail(v1, v2):
 ##__________________________________________________________________||
 @pytest.mark.parametrize(
     'v1, v2', [
-        pytest.param(np.float64(0.0045), np.float64(0.0045)*(1+0.9e-9), id='general'),
+        pytest.param(np.float64(0.0045), np.float64(0.0045)*(1+0.9e-7), id='general'),
         pytest.param(np.float64(0.0), np.float64(0.0), id='zero'),
         pytest.param(np.float64(1.0), np.float64(1.0), id='one'),
         pytest.param(np.float64(-1.0), np.float64(-1.0), id='minus_one'),
@@ -117,7 +117,7 @@ def test_assert_value_equal_else_approx_pass(v1, v2):
 
 @pytest.mark.parametrize(
     'v1, v2', [
-        pytest.param(np.float64(0.0045), np.float64(0.0045)*(1+1e-9), id='general'),
+        pytest.param(np.float64(0.0045), np.float64(0.0045)*(1+1.1e-7), id='general'),
         pytest.param(np.float64(0.0), np.float64(0.0)+1e-15, id='zero'),
         pytest.param(np.float64(1.0), np.float64(1.0)+1e-15, id='one'),
         pytest.param(np.float64(-1.0), np.float64(-1.0)+1e-15, id='minus_one'),
