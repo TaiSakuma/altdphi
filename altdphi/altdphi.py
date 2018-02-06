@@ -25,9 +25,9 @@ class AltDphi(object):
     )
 
     def __init__(self, pt, phi, mht=None, mht_phi=None):
+        self._repr = self._compose_repr(pt, phi, mht, mht_phi)
         self.pt = pt
         self.phi = phi
-        self._repr = self._compose_repr(pt, phi, mht, mht_phi)
 
         self.monojet_is_minus_mht = mht is None and pt.size == 1
 
@@ -51,29 +51,6 @@ class AltDphi(object):
             ## make mht and pt precisely the same for monojet
             return self.pt[0]
         return np.sqrt(self.mhtx**2 + self.mhty**2)
-
-    ##______________________________________________________________||
-    def _compose_repr(self, pt, phi, mht, mht_phi):
-        name_value_pairs = [('pt', pt), ('phi', phi)]
-        if mht is not None:
-            name_value_pairs.append(('mht', mht))
-        if mht_phi is not None:
-            name_value_pairs.append(('mht_phi', mht_phi))
-        return '{}({})'.format(
-            self.__class__.__name__,
-            ', '.join(['{}={!r}'.format(n, v) for n, v in name_value_pairs]),
-        )
-
-    def __repr__(self):
-        return self._repr
-
-    def __str__(self):
-        len_varname = max(len(n) for n in self.varnames)
-        ret = '{!r}:'.format(self) + '\n'
-        ret = ret + '\n'.join(
-            ['    {:>{}}: {}'.format(n, len_varname, str(getattr(self, n))) for n in self.varnames]
-        )
-        return ret
 
     ##______________________________________________________________||
     @cache_once_property
@@ -247,5 +224,28 @@ class AltDphi(object):
             self.sin_dphi_tilde == self.sin_dphi_tilde.min(),
             self.g, self.f
         )
+
+    ##______________________________________________________________||
+    def _compose_repr(self, pt, phi, mht, mht_phi):
+        name_value_pairs = [('pt', pt), ('phi', phi)]
+        if mht is not None:
+            name_value_pairs.append(('mht', mht))
+        if mht_phi is not None:
+            name_value_pairs.append(('mht_phi', mht_phi))
+        return '{}({})'.format(
+            self.__class__.__name__,
+            ', '.join(['{}={!r}'.format(n, v) for n, v in name_value_pairs]),
+        )
+
+    def __repr__(self):
+        return self._repr
+
+    def __str__(self):
+        len_varname = max(len(n) for n in self.varnames)
+        ret = '{!r}:'.format(self) + '\n'
+        ret = ret + '\n'.join(
+            ['    {:>{}}: {}'.format(n, len_varname, str(getattr(self, n))) for n in self.varnames]
+        )
+        return ret
 
 ##__________________________________________________________________||
