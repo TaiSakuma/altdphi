@@ -113,7 +113,7 @@ html_theme_options = {
     'navbar_site_name': "Site",
     'navbar_pagenav': False,
     'navbar_links': [
-        ("github", "https://github.com/TaiSakuma/altdphi", True),
+        ('<i class="fab fa-github fa-lg"></i>', "https://github.com/TaiSakuma/altdphi", True),
     ],
     'source_link_position': "",
     'bootswatch_theme': "yeti",

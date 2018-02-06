@@ -5,20 +5,6 @@ A Python library for calculating alternative angular variables to
 
 *****
 
-- [1. Introduction](#introduction)
-- [2. Requirement](#requirement)
-- [3. Install](#install)
-    - [with pip](#with-pip)
-    - [with git](#with-git)
-- [4. How to use](#how-to-use)
-    - [Launch python and import libraries](#launch-python-and-import-libraries)
-    - [A simple example](#a-simple-example)
-    - [Use MET instead of MHT](#use-met-instead-of-mht)
-- [License](#license)
-- [Contact](#contact)
-
-*****
-
 ## 1. Introduction
 
 The python library *altdphi* contains code to calculate the
@@ -246,13 +232,13 @@ AltDphi(pt=array([ 741.63,  498.69,   45.62]), phi=array([-1.41,  1.81,  0.92]))
 
 *****
 
-## License
+## <i class="fas fa-check"></i> License
 
 altdphi is licensed under the BSD license.
 
 *****
 
-## Contact
+## <i class="fas fa-envelope"></i> Contact
 
 - Tai Sakuma - tai.sakuma@gmail.com
 
