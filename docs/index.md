@@ -233,13 +233,13 @@ AltDphi(pt=array([ 741.63,  498.69,   45.62]), phi=array([-1.41,  1.81,  0.92]))
 
 *****
 
-## <i class="fas fa-check"></i> License
+## <i class="fas fa-check fa-fw"></i> License
 
 altdphi is licensed under the BSD license.
 
 *****
 
-## <i class="fas fa-envelope"></i> Contact
+## <i class="fas fa-envelope fa-fw"></i> Contact
 
 - Tai Sakuma - tai.sakuma@gmail.com
 
