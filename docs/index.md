@@ -5,19 +5,21 @@ A Python library for calculating alternative angular variables to
 
 *****
 
-- [Introduction](#introduction)
-- [Requirement](#requirement)
-- [Install](#install)
+- [1. Introduction](#introduction)
+- [2. Requirement](#requirement)
+- [3. Install](#install)
     - [with pip](#with-pip)
     - [with git](#with-git)
-- [How to use](#how-to-use)
+- [4. How to use](#how-to-use)
     - [Launch python and import libraries](#launch-python-and-import-libraries)
     - [A simple example](#a-simple-example)
     - [Use MET instead of MHT](#use-met-instead-of-mht)
+- [License](#license)
+- [Contact](#contact)
 
 *****
 
-## Introduction
+## 1. Introduction
 
 The python library *altdphi* contains code to calculate the
 alternative angular variables for suppression of QCD multijet events
@@ -26,14 +28,14 @@ arXiv:18xx.xxxxx. This page quickly explains how to use altdphi.
 
 *****
 
-## Requirement
+## 2. Requirement
 
 - Python 2.7 or 3.6
 - [NumPy](http://www.numpy.org/)
 
 *****
 
-## Install
+## 3. Install
 
 You can install with `pip` or create a clone with `git` from github.
 
@@ -62,7 +64,7 @@ $ export PYTHONPATH=$PWD/altdphi:$PYTHONPATH
 
 *****
 
-## How to use
+## 4. How to use
 
 Here, we will quickly shows how to use altdphi interactively as an example.
 
@@ -241,6 +243,18 @@ AltDphi(pt=array([ 741.63,  498.69,   45.62]), phi=array([-1.41,  1.81,  0.92]))
                  max_h: 1.88783313144
                     xi: 0.151118397198
 ```
+
+*****
+
+## License
+
+altdphi is licensed under the BSD license.
+
+*****
+
+## Contact
+
+- Tai Sakuma - tai.sakuma@gmail.com
 
 
 <br />
