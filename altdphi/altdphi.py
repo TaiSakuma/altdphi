@@ -14,14 +14,18 @@ class AltDphi(object):
         'sin_dphi_tilde', 'dphi_tilde', 'g',
         'omega', 'omega_tilde',
         'sin_dphi_hat', 'dphi_hat', 'omega_hat',
-        'k', 'chi',
+        'k', 'chi', 'tan_chi',
         'h',
         'min_omega_tilde', 'min_omega_hat', 'min_chi',
         'min_dphi_star',
         'min_omega',
         'min_dphi_tilde', 'min_sin_dphi_tilde',
-        'max_f', 'max_h',
+        'max_f',
+        'min_tan_chi',
+        'max_h',
         'xi',
+        'minimized_mht', 'min_minimized_mht',
+        'X', 'min_X',
     )
 
     def __init__(self, pt, phi, mht=None, mht_phi=None):
@@ -81,6 +85,25 @@ class AltDphi(object):
 
     ##______________________________________________________________||
     @cache_once_property
+    def minimized_mht(self):
+        return self.mht*self.sin_dphi_tilde
+
+    @cache_once_property
+    def min_minimized_mht(self):
+        return self.mht*self.min_sin_dphi_tilde
+
+    ##______________________________________________________________||
+    @cache_once_property
+    def X(self):
+        return self.mht*self.tan_chi
+
+    ##______________________________________________________________||
+    @cache_once_property
+    def min_X(self):
+        return self.mht*self.min_tan_chi
+
+    ##______________________________________________________________||
+    @cache_once_property
     def min_dphi_star(self):
         if self.dphi_star.size == 0:
             return np.nan
@@ -109,6 +132,12 @@ class AltDphi(object):
         if self.f.size == 0:
             return np.nan
         return self.f.max()
+
+    @cache_once_property
+    def min_tan_chi(self):
+        if self.tan_chi.size == 0:
+            return np.nan
+        return self.tan_chi.min()
 
     @cache_once_property
     def max_h(self):
@@ -214,6 +243,10 @@ class AltDphi(object):
             np.arctan2(self.sin_dphi_tilde, self.k)
         )
         return ret
+
+    @cache_once_property
+    def tan_chi(self):
+        return np.tan(self.chi)
 
     ##______________________________________________________________||
     @cache_once_property
