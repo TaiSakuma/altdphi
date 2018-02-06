@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # Tai Sakuma <tai.sakuma@gmail.com>
+from __future__ import print_function
 import os, sys
 
 import numpy as np
@@ -40,8 +41,8 @@ def main():
 
     expected_as_string = compose_expected_as_string(event_dict, njet_name_dict)
 
-    print expected_py_head
-    print expected_as_string
+    print(expected_py_head)
+    print(expected_as_string)
 
 def correct_event_data(njet_name_dict):
 
