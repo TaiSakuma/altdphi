@@ -263,6 +263,20 @@ class AltDphi(object):
         )
 
     ##______________________________________________________________||
+    def __repr__(self):
+        return self._repr
+
+    def __str__(self):
+        return self.to_string()
+
+    def to_string(self):
+        len_varname = max(len(n) for n in self.varnames)
+        ret = '{!r}:'.format(self) + '\n'
+        ret = ret + '\n'.join(
+            ['    {:>{}}: {}'.format(n, len_varname, str(getattr(self, n))) for n in self.varnames]
+        )
+        return ret
+
     def _compose_repr(self, pt, phi, mht, mht_phi):
         name_value_pairs = [('pt', pt), ('phi', phi)]
         if mht is not None:
@@ -273,16 +287,5 @@ class AltDphi(object):
             self.__class__.__name__,
             ', '.join(['{}={!r}'.format(n, v) for n, v in name_value_pairs]),
         )
-
-    def __repr__(self):
-        return self._repr
-
-    def __str__(self):
-        len_varname = max(len(n) for n in self.varnames)
-        ret = '{!r}:'.format(self) + '\n'
-        ret = ret + '\n'.join(
-            ['    {:>{}}: {}'.format(n, len_varname, str(getattr(self, n))) for n in self.varnames]
-        )
-        return ret
 
 ##__________________________________________________________________||
