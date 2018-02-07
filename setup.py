@@ -1,11 +1,10 @@
 from setuptools import setup, find_packages
-import os
 import versioneer
 
-here = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, 'README.md')) as f:
-    long_description = f.read()
+long_description = """
+Documentation: `<http://altdphi.readthedocs.io>`__
+"""
 
 setup(
     name='altdphi',
@@ -16,7 +15,7 @@ setup(
     description_content_type='text/markdown',
     author='Tai Sakuma',
     author_email='tai.sakuma@gmail.com',
-    url='https://github.com/TaiSakuma/altdphi',
+    url='http://altdphi.readthedocs.io',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
