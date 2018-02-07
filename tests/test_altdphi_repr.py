@@ -19,6 +19,7 @@ def test_repr_without_mht():
     assert 'mht_phi' not in repr(alt)
 
     assert repr(alt) + ':' == str(alt).split('\n')[0]
+    assert repr(alt) + ':' == alt.to_string(all = True).split('\n')[0]
 
 def test_repr_with_mht():
     pt = np.array([741.63, 498.69, 45.62])
@@ -34,5 +35,6 @@ def test_repr_with_mht():
     assert 'mht_phi' in repr(alt)
 
     assert repr(alt) + ':' == str(alt).split('\n')[0]
+    assert repr(alt) + ':' == alt.to_string(all = True).split('\n')[0]
 
 ##__________________________________________________________________||
