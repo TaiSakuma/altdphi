@@ -47,6 +47,9 @@ def dump_special_np_float(v):
         'np.float64(np.pi)',
         'np.float64(np.pi/2)',
         'np.float64(np.pi/4)',
+        'np.float64(-np.pi)',
+        'np.float64(-np.pi/2)',
+        'np.float64(-np.pi/4)',
     )
 
     for s in specials:

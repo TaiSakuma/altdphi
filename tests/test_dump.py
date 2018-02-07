@@ -43,6 +43,9 @@ dumped = (
     "np.float64(np.pi)",
     "np.float64(np.pi/2)",
     "np.float64(np.pi/4)",
+    "np.float64(-np.pi)",
+    "np.float64(-np.pi/2)",
+    "np.float64(-np.pi/4)",
 )
 
 ##__________________________________________________________________||
