@@ -7,7 +7,7 @@ from .cache import cache_once_property
 class AltDphi(object):
     varnames = (
         'pt', 'phi', 'px', 'py',
-        'mhtx', 'mhty', 'mht',
+        'mhtx', 'mhty', 'mht', 'mht_phi', 
         'cos_dphi', 'sin_dphi', 'dphi',
         'f', 'arccot_f',
         'dphi_star',
@@ -55,6 +55,10 @@ class AltDphi(object):
             ## make mht and pt precisely the same for monojet
             return self.pt[0]
         return np.sqrt(self.mhtx**2 + self.mhty**2)
+
+    @cache_once_property
+    def mht_phi(self):
+        return np.arctan2(self.mhty, self.mhtx)
 
     ##______________________________________________________________||
     @cache_once_property
