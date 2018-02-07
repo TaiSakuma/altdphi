@@ -14,10 +14,10 @@ def dump_altdphi(altdphi, target_class='mock.MagicMock'):
         elif np.isnan(v):
             l = '{}=np.nan'.format(n, v)
         else:
-            l = '{}=np.float64({})'.format(n, v)
         contests.append(l)
     contests.append('varnames=({})'.format(', '.join(("'{}'".format(n) for n in altdphi.varnames))))
     if contests:
+            l = '{}=np.float64({!r})'.format(n, v)
         ret = ret + '\n    '
         ret = ret + ',\n    '.join(contests)
         ret = ret + '\n'
