@@ -7,7 +7,8 @@ import numpy as np
 
 from conftest import tbl_scan_event as tbl_scan_event_
 from conftest import tbl_scan_jet as tbl_scan_jet_
-from dump import dump_altdphi
+
+from dump import dump_altdphi, dump_float
 
 here = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, os.path.dirname(here))
@@ -98,10 +99,10 @@ def compose_expected_as_string(event_dict, njet_name_dict):
         dumped_met = dump_altdphi(alt_met)
         lines = ''
         lines = lines + 'event_{} = dict(\n'.format(njet_name)
-        lines = lines + '    jet_pt =  [' + ', '.join(['{!r}'.format(v) for v in pt]) + '],\n'
-        lines = lines + '    jet_phi = [' + ', '.join(['{!r}'.format(v) for v in phi]) + '],\n'
-        lines = lines + '    met = {!r}'.format(met) + ',\n'
-        lines = lines + '    met_phi = {!r}'.format(met_phi) + ',\n'
+        lines = lines + '    jet_pt =  np.array([' + ', '.join([dump_float(v) for v in pt]) + ']),\n'
+        lines = lines + '    jet_phi = np.array([' + ', '.join([dump_float(v) for v in phi]) + ']),\n'
+        lines = lines + '    met = {}'.format(dump_float(met)) + ',\n'
+        lines = lines + '    met_phi = {}'.format(dump_float(met_phi)) + ',\n'
         lines = lines + ')\n'
         lines = lines + '\n'
         lines = lines + 'altdphi_{} = {}\n'.format(njet_name, dumped)
