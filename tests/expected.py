@@ -39,8 +39,8 @@ altdphi_nojet = mock.MagicMock(
     X=np.array([]),
     px=np.array([]),
     py=np.array([]),
-    mhtx=np.float64('-0.0'),
-    mhty=np.float64('-0.0'),
+    mht_x=np.float64('-0.0'),
+    mht_y=np.float64('-0.0'),
     min_omega=np.nan,
     min_dphi_tilde=np.nan,
     min_sin_dphi_tilde=np.nan,
@@ -55,7 +55,7 @@ altdphi_nojet = mock.MagicMock(
     k=np.array([]),
     tan_chi=np.array([]),
     h=np.array([]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 altdphi_met_nojet = mock.MagicMock(
@@ -84,8 +84,8 @@ altdphi_met_nojet = mock.MagicMock(
     X=np.array([]),
     px=np.array([]),
     py=np.array([]),
-    mhtx=np.float64('-7.5304070177629159'),
-    mhty=np.float64('6.7607226053748875'),
+    mht_x=np.float64('-7.5304070177629159'),
+    mht_y=np.float64('6.7607226053748875'),
     min_omega=np.nan,
     min_dphi_tilde=np.nan,
     min_sin_dphi_tilde=np.nan,
@@ -100,7 +100,7 @@ altdphi_met_nojet = mock.MagicMock(
     k=np.array([]),
     tan_chi=np.array([]),
     h=np.array([]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 event_monojet = dict(
@@ -136,8 +136,8 @@ altdphi_monojet = mock.MagicMock(
     X=np.array([np.float64('2.4728979549111702e+19')]),
     px=np.array([np.float64('763.44511993136871')]),
     py=np.array([np.float64('-1307.6671648029646')]),
-    mhtx=np.float64('-763.44511993136871'),
-    mhty=np.float64('1307.6671648029646'),
+    mht_x=np.float64('-763.44511993136871'),
+    mht_y=np.float64('1307.6671648029646'),
     min_omega=np.float64('0.0'),
     min_dphi_tilde=np.float64(np.pi),
     min_sin_dphi_tilde=np.float64('0.0'),
@@ -152,7 +152,7 @@ altdphi_monojet = mock.MagicMock(
     k=np.array([np.float64('0.0')]),
     tan_chi=np.array([np.float64('16331239353195370.0')]),
     h=np.array([np.float64('0.0')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 altdphi_met_monojet = mock.MagicMock(
@@ -181,8 +181,8 @@ altdphi_met_monojet = mock.MagicMock(
     X=np.array([np.float64('2.4759258594976858e+19')]),
     px=np.array([np.float64('763.44511993136871')]),
     py=np.array([np.float64('-1307.6671648029646')]),
-    mhtx=np.float64('-792.67750255779777'),
-    mhty=np.float64('1292.3322152115086'),
+    mht_x=np.float64('-792.67750255779777'),
+    mht_y=np.float64('1292.3322152115086'),
     min_omega=np.float64('0.021774605618461423'),
     min_dphi_tilde=np.float64('3.1198171661376182'),
     min_sin_dphi_tilde=np.float64('0.021773766605765493'),
@@ -197,7 +197,7 @@ altdphi_met_monojet = mock.MagicMock(
     k=np.array([np.float64('0.0')]),
     tan_chi=np.array([np.float64('16331239353195370.0')]),
     h=np.array([np.float64('0.0')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 event_two_jets = dict(
@@ -233,8 +233,8 @@ altdphi_two_jets = mock.MagicMock(
     X=np.array([np.float64('1.7511537397169936'), np.float64('2.5280854723592121')]),
     px=np.array([np.float64('672.65323339982285'), np.float64('-463.10118716350621')]),
     py=np.array([np.float64('-685.04053149054948'), np.float64('477.26182786674264')]),
-    mhtx=np.float64('-209.55204623631664'),
-    mhty=np.float64('207.77870362380685'),
+    mht_x=np.float64('-209.55204623631664'),
+    mht_y=np.float64('207.77870362380685'),
     min_omega=np.float64('0.0041102643265141115'),
     min_dphi_tilde=np.float64('0.019306782064719336'),
     min_sin_dphi_tilde=np.float64('0.013372351687657297'),
@@ -249,7 +249,7 @@ altdphi_two_jets = mock.MagicMock(
     k=np.array([np.float64('2.2534754056217596'), np.float64('2.253515081718295')]),
     tan_chi=np.array([np.float64('0.005934101456930573'), np.float64('0.0085668752802916647')]),
     h=np.array([np.float64('2.2534754056217596'), np.float64('2.253515081718295')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 altdphi_met_two_jets = mock.MagicMock(
@@ -278,8 +278,8 @@ altdphi_met_two_jets = mock.MagicMock(
     X=np.array([np.float64('10.227104016555394'), np.float64('11.527099477600149')]),
     px=np.array([np.float64('672.65323339982285'), np.float64('-463.10118716350621')]),
     py=np.array([np.float64('-685.04053149054948'), np.float64('477.26182786674264')]),
-    mhtx=np.float64('-193.28884227713348'),
-    mhty=np.float64('154.74069763863898'),
+    mht_x=np.float64('-193.28884227713348'),
+    mht_y=np.float64('154.74069763863898'),
     min_omega=np.float64('0.030718924679972035'),
     min_dphi_tilde=np.float64('0.12536905132999973'),
     min_sin_dphi_tilde=np.float64('0.11915127071805272'),
@@ -294,7 +294,7 @@ altdphi_met_two_jets = mock.MagicMock(
     k=np.array([np.float64('2.884661609845514'), np.float64('2.6858447658384006')]),
     tan_chi=np.array([np.float64('0.041305111944979149'), np.float64('0.046555518898843684')]),
     h=np.array([np.float64('2.884661609845514'), np.float64('2.6858447658384006')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 event_three_jets = dict(
@@ -330,8 +330,8 @@ altdphi_three_jets = mock.MagicMock(
     X=np.array([np.float64('0.97501211731464332'), np.float64('7.4999225100292986'), np.float64('712.54303349697432')]),
     px=np.array([np.float64('120.53934512736413'), np.float64('-115.89613168917397'), np.float64('27.55473105537045')]),
     py=np.array([np.float64('-731.76883485251301'), np.float64('485.04012974754505'), np.float64('36.355843787657435')]),
-    mhtx=np.float64('-32.197944493560613'),
-    mhty=np.float64('210.37286131731054'),
+    mht_x=np.float64('-32.197944493560613'),
+    mht_y=np.float64('210.37286131731054'),
     min_omega=np.float64('0.0032667237023777142'),
     min_dphi_tilde=np.float64('0.082670479034785513'),
     min_sin_dphi_tilde=np.float64('0.01138370583352441'),
@@ -346,7 +346,7 @@ altdphi_three_jets = mock.MagicMock(
     k=np.array([np.float64('2.4847994655072583'), np.float64('2.3432388957827532'), np.float64('0.21434800747462929')]),
     tan_chi=np.array([np.float64('0.0045813378469962314'), np.float64('0.03524025828455226'), np.float64('3.3480613307288229')]),
     h=np.array([np.float64('2.4847994655072583'), np.float64('2.3432388957827532'), np.float64('0.21434800747462929')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 altdphi_met_three_jets = mock.MagicMock(
@@ -375,8 +375,8 @@ altdphi_met_three_jets = mock.MagicMock(
     X=np.array([np.float64('40.433992295709224'), np.float64('49.04684084115307'), np.float64('766.69704662010486')]),
     px=np.array([np.float64('120.53934512736413'), np.float64('-115.89613168917397'), np.float64('27.55473105537045')]),
     py=np.array([np.float64('-731.76883485251301'), np.float64('485.04012974754505'), np.float64('36.355843787657435')]),
-    mhtx=np.float64('32.558901361476359'),
-    mhty=np.float64('262.15111748882572'),
+    mht_x=np.float64('32.558901361476359'),
+    mht_y=np.float64('262.15111748882572'),
     min_omega=np.float64('0.10043108812583663'),
     min_dphi_tilde=np.float64('0.3581099450500001'),
     min_sin_dphi_tilde=np.float64('0.28290684699432123'),
@@ -391,7 +391,7 @@ altdphi_met_three_jets = mock.MagicMock(
     k=np.array([np.float64('1.8483003950596577'), np.float64('1.8878111170180734'), np.float64('0.17268770681023815')]),
     tan_chi=np.array([np.float64('0.15306324001796787'), np.float64('0.18566725533528722'), np.float64('2.9023385375758082')]),
     h=np.array([np.float64('1.8483003950596577'), np.float64('1.8878111170180734'), np.float64('0.17268770681023815')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 event_four_jets = dict(
@@ -427,8 +427,8 @@ altdphi_four_jets = mock.MagicMock(
     X=np.array([np.float64('655.35530208993919'), np.float64('816.65360743007636'), np.float64('397.7937657228527'), np.float64('1.2342870462575337e+19')]),
     px=np.array([np.float64('284.69546291591826'), np.float64('-735.66570564005951'), np.float64('161.83172849241271'), np.float64('-88.062067643636922')]),
     py=np.array([np.float64('-1113.800277128574'), np.float64('300.47594097407784'), np.float64('192.65219192567889'), np.float64('-34.253364966751981')]),
-    mhtx=np.float64('377.20058187536546'),
-    mhty=np.float64('654.92550919556913'),
+    mht_x=np.float64('377.20058187536546'),
+    mht_y=np.float64('654.92550919556913'),
     min_omega=np.float64('0.43029110834012402'),
     min_dphi_tilde=np.float64('0.1761280348912779'),
     min_sin_dphi_tilde=np.float64('0.17521883247922629'),
@@ -443,7 +443,7 @@ altdphi_four_jets = mock.MagicMock(
     k=np.array([np.float64('0.80512097974609143'), np.float64('0.91706983919590113'), np.float64('0.33290463119631497'), np.float64('0.0')]),
     tan_chi=np.array([np.float64('0.86712117187555138'), np.float64('1.0805400228439463'), np.float64('0.52633341822120572'), np.float64('16331239353195370.0')]),
     h=np.array([np.float64('1.5210847389234678'), np.float64('1.0514440077480691'), np.float64('1.3174341435750028'), np.float64('0.12502170953289274')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 altdphi_met_four_jets = mock.MagicMock(
@@ -472,8 +472,8 @@ altdphi_met_four_jets = mock.MagicMock(
     X=np.array([np.float64('729.55451883143996'), np.float64('907.97473258854802'), np.float64('358.47956891289095'), np.float64('1.2796237459152034e+19')]),
     px=np.array([np.float64('284.69546291591826'), np.float64('-735.66570564005951'), np.float64('161.83172849241271'), np.float64('-88.062067643636922')]),
     py=np.array([np.float64('-1113.800277128574'), np.float64('300.47594097407784'), np.float64('192.65219192567889'), np.float64('-34.253364966751981')]),
-    mhtx=np.float64('410.36737428649991'),
-    mhty=np.float64('667.48717748151023'),
+    mht_x=np.float64('410.36737428649991'),
+    mht_y=np.float64('667.48717748151023'),
     min_omega=np.float64('0.42908224961722746'),
     min_dphi_tilde=np.float64('0.14744488614400028'),
     min_sin_dphi_tilde=np.float64('0.14691122472981541'),
@@ -488,7 +488,7 @@ altdphi_met_four_jets = mock.MagicMock(
     k=np.array([np.float64('0.77154592115836096'), np.float64('0.8514536398709508'), np.float64('0.32110991628314328'), np.float64('0.0')]),
     tan_chi=np.array([np.float64('0.9310963090732659'), np.float64('1.1588056826775834'), np.float64('0.45751070670852256'), np.float64('16331239353195370.0')]),
     h=np.array([np.float64('1.4671931460372194'), np.float64('1.0141916502966706'), np.float64('1.3102595975995686'), np.float64('0.1205922264806481')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 event_twelve_jets = dict(
@@ -524,8 +524,8 @@ altdphi_twelve_jets = mock.MagicMock(
     X=np.array([np.float64('595.32543738547508'), np.float64('911.23091555796179'), np.float64('8.6239932167942195e+18'), np.float64('92.417766144721256'), np.float64('2006.8406529470642'), np.float64('8.6239932167942195e+18'), np.float64('2644.1660831124923'), np.float64('8.6239932167942195e+18'), np.float64('9858.4064241710385'), np.float64('2733.3829481543376'), np.float64('8663.0760213172525'), np.float64('8.6239932167942195e+18')]),
     px=np.array([np.float64('-625.54941467518756'), np.float64('405.44384374612412'), np.float64('141.33881711599926'), np.float64('22.925567558742578'), np.float64('-129.58410853849477'), np.float64('48.553926297787939'), np.float64('88.537549712672728'), np.float64('-20.327551164105035'), np.float64('-75.056365483521802'), np.float64('-30.311183360524392'), np.float64('59.520499234801179'), np.float64('16.914058834469365')]),
     py=np.array([np.float64('149.52619887131735'), np.float64('259.64176121661728'), np.float64('391.74579696971563'), np.float64('-374.91792989243174'), np.float64('-45.530447039050955'), np.float64('82.181070330556636'), np.float64('-28.102274403009396'), np.float64('84.24527112364008'), np.float64('-7.2516938099316928'), np.float64('-56.428602121471066'), np.float64('14.636301681633013'), np.float64('49.22506420423511')]),
-    mhtx=np.float64('97.594360721236399'),
-    mhty=np.float64('-518.97051713182032'),
+    mht_x=np.float64('97.594360721236399'),
+    mht_y=np.float64('-518.97051713182032'),
     min_omega=np.float64('0.17325667513098722'),
     min_dphi_tilde=np.float64('0.12481066950846315'),
     min_sin_dphi_tilde=np.float64('0.12448687787976397'),
@@ -540,7 +540,7 @@ altdphi_twelve_jets = mock.MagicMock(
     k=np.array([np.float64('0.8097454308862102'), np.float64('0.53736994230931834'), np.float64('0.0'), np.float64('0.71130747141773798'), np.float64('0.26009970836662211'), np.float64('0.0'), np.float64('0.17590646466154605'), np.float64('0.0'), np.float64('0.053350472724615655'), np.float64('0.12129952863323766'), np.float64('0.060863127500571018'), np.float64('0.0')]),
     tan_chi=np.array([np.float64('1.1273666347573967'), np.float64('1.7255962306450323'), np.float64('16331239353195370.0'), np.float64('0.17501134584126291'), np.float64('3.8003502812568857'), np.float64('16331239353195370.0'), np.float64('5.0072522214904227'), np.float64('16331239353195370.0'), np.float64('18.668845267722084'), np.float64('5.1762020270750009'), np.float64('16.405250384885058'), np.float64('16331239353195370.0')]),
     h=np.array([np.float64('1.2179734792946311'), np.float64('0.91172969392311587'), np.float64('0.7886551820740697'), np.float64('1.7035287255923039'), np.float64('0.26009970836662211'), np.float64('0.18075853613500112'), np.float64('0.17590646466154605'), np.float64('0.16411355052448703'), np.float64('0.14279594875405865'), np.float64('0.12129952863323766'), np.float64('0.11607166123159858'), np.float64('0.098566799837488298')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 
 altdphi_met_twelve_jets = mock.MagicMock(
@@ -569,8 +569,8 @@ altdphi_met_twelve_jets = mock.MagicMock(
     X=np.array([np.float64('540.3996373747533'), np.float64('858.07130860411382'), np.float64('8.3437107279700879e+18'), np.float64('70.701010039140655'), np.float64('1871.434833431282'), np.float64('8.3437107279700879e+18'), np.float64('2504.8953913341306'), np.float64('8.3437107279700879e+18'), np.float64('6295.6922978934917'), np.float64('2485.3212486281554'), np.float64('12150.626904847513'), np.float64('8.3437107279700879e+18')]),
     px=np.array([np.float64('-625.54941467518756'), np.float64('405.44384374612412'), np.float64('141.33881711599926'), np.float64('22.925567558742578'), np.float64('-129.58410853849477'), np.float64('48.553926297787939'), np.float64('88.537549712672728'), np.float64('-20.327551164105035'), np.float64('-75.056365483521802'), np.float64('-30.311183360524392'), np.float64('59.520499234801179'), np.float64('16.914058834469365')]),
     py=np.array([np.float64('149.52619887131735'), np.float64('259.64176121661728'), np.float64('391.74579696971563'), np.float64('-374.91792989243174'), np.float64('-45.530447039050955'), np.float64('82.181070330556636'), np.float64('-28.102274403009396'), np.float64('84.24527112364008'), np.float64('-7.2516938099316928'), np.float64('-56.428602121471066'), np.float64('14.636301681633013'), np.float64('49.22506420423511')]),
-    mhtx=np.float64('82.903482375018896'),
-    mhty=np.float64('-504.13377386233441'),
+    mht_x=np.float64('82.903482375018896'),
+    mht_y=np.float64('-504.13377386233441'),
     min_omega=np.float64('0.13751054430663331'),
     min_dphi_tilde=np.float64('0.1019164187300016'),
     min_sin_dphi_tilde=np.float64('0.10174007677131841'),
@@ -585,6 +585,6 @@ altdphi_met_twelve_jets = mock.MagicMock(
     k=np.array([np.float64('0.87166453600865945'), np.float64('0.54686732504350744'), np.float64('0.0'), np.float64('0.73520175957178902'), np.float64('0.26883699516625253'), np.float64('0.0'), np.float64('0.18181552638756149'), np.float64('0.0'), np.float64('0.080971216332721238'), np.float64('0.12537423051192914'), np.float64('0.041919345933257343'), np.float64('0.0')]),
     tan_chi=np.array([np.float64('1.0577303207267563'), np.float64('1.6795126748518781'), np.float64('16331239353195370.0'), np.float64('0.13838388639137086'), np.float64('3.662980560462108'), np.float64('16331239353195370.0'), np.float64('4.9028600732118202'), np.float64('16331239353195370.0'), np.float64('12.322629722325122'), np.float64('4.8645473823615397'), np.float64('23.782559432368611'), np.float64('16331239353195370.0')]),
     h=np.array([np.float64('1.2588877258724889'), np.float64('0.94235657878035317'), np.float64('0.81514773969771437'), np.float64('1.7300127751815713'), np.float64('0.26883699516625253'), np.float64('0.18683058897047267'), np.float64('0.18181552638756149'), np.float64('0.16962646389006808'), np.float64('0.14759275981518802'), np.float64('0.12537423051192914'), np.float64('0.11997074823888015'), np.float64('0.10187786237004597')]),
-    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mhtx', 'mhty', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
+    varnames=('pt', 'phi', 'mht', 'mht_phi', 'max_f', 'min_omega_tilde', 'min_omega_hat', 'min_chi', 'min_dphi_star', 'xi', 'min_minimized_mht', 'min_X', 'f', 'dphi', 'omega', 'omega_tilde', 'omega_hat', 'chi', 'dphi_star', 'sin_dphi_tilde', 'g', 'minimized_mht', 'X', 'px', 'py', 'mht_x', 'mht_y', 'min_omega', 'min_dphi_tilde', 'min_sin_dphi_tilde', 'min_tan_chi', 'max_h', 'cos_dphi', 'sin_dphi', 'arccot_f', 'dphi_tilde', 'sin_dphi_hat', 'dphi_hat', 'k', 'tan_chi', 'h')
 )
 

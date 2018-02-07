@@ -74,7 +74,7 @@ class AltDphi(object):
 
     varnames_intermediate = (
         'px', 'py',
-        'mhtx', 'mhty',
+        'mht_x', 'mht_y',
         'min_omega',
         'min_dphi_tilde', 'min_sin_dphi_tilde',
         'min_tan_chi',
@@ -98,16 +98,16 @@ class AltDphi(object):
 
         if mht is not None:
             self.mht = mht
-            self.mhtx = mht*np.cos(mht_phi)
-            self.mhty = mht*np.sin(mht_phi)
+            self.mht_x = mht*np.cos(mht_phi)
+            self.mht_y = mht*np.sin(mht_phi)
 
     ##______________________________________________________________||
     @cache_once_property
-    def mhtx(self):
+    def mht_x(self):
         return -np.sum(self.px)
 
     @cache_once_property
-    def mhty(self):
+    def mht_y(self):
         return -np.sum(self.py)
 
     @cache_once_property
@@ -115,11 +115,11 @@ class AltDphi(object):
         if self.monojet_is_minus_mht:
             ## make mht and pt precisely the same for monojet
             return self.pt[0]
-        return np.sqrt(self.mhtx**2 + self.mhty**2)
+        return np.sqrt(self.mht_x**2 + self.mht_y**2)
 
     @cache_once_property
     def mht_phi(self):
-        return np.arctan2(self.mhty, self.mhtx)
+        return np.arctan2(self.mht_y, self.mht_x)
 
     ##______________________________________________________________||
     @cache_once_property
@@ -224,7 +224,7 @@ class AltDphi(object):
     def cos_dphi(self):
         if self.monojet_is_minus_mht:
             return np.array([-1.0])
-        ret = (self.mhtx*self.px + self.mhty*self.py)/(self.mht*self.pt)
+        ret = (self.mht_x*self.px + self.mht_y*self.py)/(self.mht*self.pt)
         ret = np.minimum(ret, 1.0)
         ret = np.maximum(ret, -1.0)
         return ret
