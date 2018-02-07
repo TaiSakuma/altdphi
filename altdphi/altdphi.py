@@ -282,11 +282,13 @@ class AltDphi(object):
     def __str__(self):
         return self.to_string()
 
-    def to_string(self):
-        len_varname = max(len(n) for n in self.varnames)
+    def to_string(self, all = False):
         ret = '{!r}:'.format(self) + '\n'
+
+        varnames = self.varnames if all else self.varnames_main
+        len_varname = max(len(n) for n in varnames)
         ret = ret + '\n'.join(
-            ['    {:>{}}: {}'.format(n, len_varname, str(getattr(self, n))) for n in self.varnames]
+            ['    {:>{}}: {}'.format(n, len_varname, str(getattr(self, n))) for n in varnames]
         )
         return ret
 
