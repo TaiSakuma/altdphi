@@ -4,8 +4,15 @@ import numpy as np
 __all__ = ['AltDphi']
 
 ##__________________________________________________________________||
-# https://stackoverflow.com/questions/4037481/caching-attributes-of-classes-in-python#answer-4037979
 class cache_once_property(object):
+    """A property decorator that replaces the property with the value that
+    the property returns.
+
+    inspired by
+    https://stackoverflow.com/questions/4037481/caching-attributes-of-classes-in-python#answer-4037979
+
+    """
+    
     def __init__(self, f):
         self.f = f
 
