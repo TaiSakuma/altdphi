@@ -1,5 +1,5 @@
 # Tai Sakuma <tai.sakuma@gmail.com>
-from altdphi.cache import cache_once_property
+from altdphi.altdphi import cache_once_property
 
 ##__________________________________________________________________||
 class Spam(object):
