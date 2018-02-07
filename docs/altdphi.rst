@@ -12,15 +12,6 @@ altdphi\.altdphi module
     :undoc-members:
     :show-inheritance:
 
-altdphi\.cache module
----------------------
-
-.. automodule:: altdphi.cache
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
 Module contents
 ---------------
 
