@@ -5,11 +5,10 @@ from .cache import cache_once_property
 
 ##__________________________________________________________________||
 class AltDphi(object):
-    varnames = (
+
+    varnames_main = (
         'pt', 'phi',
         'mht', 'mht_phi',
-        'px', 'py',
-        'mhtx', 'mhty',
         'max_f',
         'min_omega_tilde',
         'min_omega_hat',
@@ -23,6 +22,11 @@ class AltDphi(object):
         'sin_dphi_tilde', 'g',
         'minimized_mht',
         'X',
+        )
+
+    varnames_intermediate = (
+        'px', 'py',
+        'mhtx', 'mhty',
         'min_omega',
         'min_dphi_tilde', 'min_sin_dphi_tilde',
         'min_tan_chi',
@@ -35,6 +39,7 @@ class AltDphi(object):
         'tan_chi',
         'h',
     )
+    varnames = varnames_main + varnames_intermediate
 
     def __init__(self, pt, phi, mht=None, mht_phi=None):
         self._repr = self._compose_repr(pt, phi, mht, mht_phi)
