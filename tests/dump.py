@@ -28,7 +28,7 @@ def dump_altdphi(altdphi, target_class='mock.MagicMock'):
 def dump_float(v):
     module_name = type(v).__module__
     class_name = v.__class__.__name__
-    if module_name == '__builtin__':
+    if module_name in ('__builtin__', 'builtins'):
         return "{}('{!r}')".format(class_name, v)
 
     if module_name == np.__name__:
