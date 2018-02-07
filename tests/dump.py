@@ -9,7 +9,7 @@ def dump_altdphi(altdphi, target_class='mock.MagicMock'):
         v = getattr(altdphi, n)
         if isinstance(v, np.ndarray):
             l = '{}=np.array(['.format(n)
-            l = l + ', '.join(('{!r}'.format(e) for e in v))
+            l = l + ', '.join((dump_float(e) for e in v))
             l = l + '])'
         elif np.isnan(v):
             l = '{}=np.nan'.format(n)
