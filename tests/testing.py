@@ -41,7 +41,7 @@ def _is_ndarray(v):
 def _assert_value_equal_ndarray(expected, actual):
     if not _is_ndarray(actual):
         raise AssertionError
-    np.testing.assert_equal(expected, actual)
+    np.testing.assert_allclose(actual, expected, rtol=1e-5)
 
 def _is_scalar_nan(v):
     if isinstance(v, float) and np.isnan(v):
