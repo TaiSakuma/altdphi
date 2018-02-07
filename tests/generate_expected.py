@@ -37,14 +37,14 @@ def main():
        12: 'twelve_jets'
     }
 
-    event_dict = correct_event_data(njet_name_dict)
+    event_dict = collect_event_data(njet_name_dict)
 
     expected_as_string = compose_expected_as_string(event_dict, njet_name_dict)
 
     print(expected_py_head)
     print(expected_as_string)
 
-def correct_event_data(njet_name_dict):
+def collect_event_data(njet_name_dict):
 
     tbl_scan_event = tbl_scan_event_()
     tbl_scan_jet = tbl_scan_jet_()
