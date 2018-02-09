@@ -115,6 +115,7 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 # html_theme_options = {}
 html_theme_options = {
     'navbar_site_name': "Site",
+    'navbar_sidebarrel': False,
     'navbar_pagenav': False,
     'navbar_links': [
         ('<i class="fab fa-github fa-lg"></i>', "https://github.com/TaiSakuma/altdphi", True),
