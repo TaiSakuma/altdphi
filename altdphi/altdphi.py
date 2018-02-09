@@ -53,6 +53,9 @@ class cache_once_property(object):
 
 ##__________________________________________________________________||
 class AltDphi(object):
+    """The class for calculating the alternative variables.
+
+    """
 
     varnames_main = (
         'pt', 'phi',
