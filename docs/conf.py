@@ -146,6 +146,7 @@ html_sidebars = {
         'localtoc.html',
     ]
 }
+html_sidebars =  { }
 
 # -- Options for HTMLHelp output ------------------------------------------
 
