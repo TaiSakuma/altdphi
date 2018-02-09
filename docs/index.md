@@ -1,8 +1,17 @@
 
-<span style="font-size: 39px;">altdphi</span>
+# altdphi
 
 A Python library for calculating alternative angular variables to
 \\(\Delta\varphi\\) in SUSY searches at LHC
+
+*****
+
+- [1. Introduction](#introduction)
+- [2. Requirement](#requirement)
+- [3. Install](#install)
+- [4. How to use](#how-to-use)
+- [<i class="fas fa-check fa-fw"></i> License](#i-class-fas-fa-check-fa-fw-i-license)
+- [<i class="fas fa-envelope fa-fw"></i> Contact](#i-class-fas-fa-envelope-fa-fw-i-contact)
 
 *****
 
