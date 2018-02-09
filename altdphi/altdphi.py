@@ -53,7 +53,7 @@ class cache_once_property(object):
 
 ##__________________________________________________________________||
 class AltDphi(object):
-    """The class for calculating the alternative variables.
+    """The class to calculate the alternative variables.
 
     """
 
@@ -93,6 +93,15 @@ class AltDphi(object):
     varnames = varnames_main + varnames_intermediate
 
     def __init__(self, pt, phi, mht=None, mht_phi=None):
+        """initialize an ``AltDphi`` object
+
+        Args:
+            pt (numpy.array): numpy array of jet pT
+            phi (numpy.array): numpy array of jet phi
+            mht (float, optional): MHT. if not given, calculated from ``pt`` and ``phi``
+            mht_phi (float, optional): phi of MHT. if not given, calculated from ``pt`` and ``phi``
+        """
+
         self._repr = self._compose_repr(pt, phi, mht, mht_phi)
         self.pt = pt
         self.phi = phi
@@ -333,7 +342,14 @@ class AltDphi(object):
     def __str__(self):
         return self.to_string()
 
-    def to_string(self, all = False):
+    def to_string(self, all=False):
+        """create a string containing the contents of the object
+
+        Args:
+            all(bool): include only the main variables if ``False``.
+                include all variables, e.g., intermediate variables, if ``True``.
+        """
+
         ret = '{!r}:'.format(self) + '\n'
 
         varnames = self.varnames if all else self.varnames_main
