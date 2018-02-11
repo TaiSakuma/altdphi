@@ -18,9 +18,11 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.dirname(os.path.abspath('.')))
-import sphinx_bootstrap_theme
+cwd = os.path.abspath('.')
+sys.path.insert(0, cwd)
+sys.path.insert(0, os.path.dirname(cwd))
+del cwd
+
 import recommonmark
 from recommonmark.transform import AutoStructify
 
@@ -105,8 +107,8 @@ todo_include_todos = True
 # a list of builtin themes.
 #
 # html_theme = 'alabaster'
-html_theme = 'bootstrap'
-html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+html_theme = "sphinx_rtd_theme"
+html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -114,15 +116,16 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 #
 # html_theme_options = {}
 html_theme_options = {
-    'navbar_site_name': "Site",
-    'navbar_sidebarrel': False,
-    'navbar_pagenav': False,
-    'navbar_links': [
-        ('<i class="fab fa-github fa-lg"></i>', "https://github.com/TaiSakuma/altdphi", True),
-    ],
-    'source_link_position': "",
-    'bootswatch_theme': "yeti",
-    'bootstrap_version': "3",
+    # 'typekit_id': hiw1hhg,
+    # 'canonical_url':
+    # 'analytics_id':
+    'collapse_navigation': False,
+    'sticky_navigation': False,
+    'navigation_depth': 4,
+    # 'includehidden': True,
+    # 'logo_only':
+    'display_version': True,
+    'prev_next_buttons_location': 'bottom',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -146,7 +149,6 @@ html_sidebars = {
         'localtoc.html',
     ]
 }
-html_sidebars =  { }
 
 # -- Options for HTMLHelp output ------------------------------------------
 
@@ -204,14 +206,12 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-# AutoStructify
 def setup(app):
     app.add_config_value('recommonmark_config', {
             'url_resolver': lambda url: github_doc_root + url,
             'auto_toc_tree_section': 'Contents',
             }, True)
     app.add_transform(AutoStructify)
-    app.add_stylesheet("style.css")
 
 
 
