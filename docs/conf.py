@@ -8,8 +8,6 @@ sys.path.insert(0, cwd)
 sys.path.insert(0, os.path.dirname(cwd))
 del cwd
 
-import recommonmark
-from recommonmark.transform import AutoStructify
 
 ##__________________________________________________________________||
 extensions = [
@@ -38,8 +36,6 @@ master_doc = 'contents'
 project = u'altdphi'
 copyright = u'2018, Tai Sakuma'
 author = u'Tai Sakuma'
-
-github_doc_root = 'https://github.com/TaiSakuma/altdphi/tree/master/docs'
 
 import altdphi
 version = '.'.join(altdphi.__version__.split('.')[0:2])
@@ -103,11 +99,15 @@ texinfo_documents = [
 ]
 
 ##__________________________________________________________________||
+from recommonmark.transform import AutoStructify
+# http://recommonmark.readthedocs.io/en/latest/auto_structify.html
+github_doc_root = 'https://github.com/TaiSakuma/altdphi/tree/master/docs/'
+
 def setup(app):
     app.add_config_value('recommonmark_config', {
-            'url_resolver': lambda url: github_doc_root + url,
-            'auto_toc_tree_section': 'Contents',
-            }, True)
+        'url_resolver': lambda url: github_doc_root + url,
+        'auto_toc_tree_section': 'Contents',
+    }, True)
     app.add_transform(AutoStructify)
 
 ##__________________________________________________________________||
