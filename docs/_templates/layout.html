@@ -77,7 +77,6 @@
     {%- endif %}
   {%- endblock %}
   {%- block extrahead %}
-      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   {% endblock %}
 
   {# Keep modernizr in head - http://modernizr.com/docs/#installing #}
@@ -99,7 +98,7 @@
           {% if logo and theme_logo_only %}
             <a href="{{ pathto('index') }}">
           {% else %}
-            <a href="{{ pathto('index') }}" > <i class="fas fa-filter"></i> {{ project }}
+            <a href="{{ pathto('index') }}" > <i class="fa fa-filter"></i> {{ project }}
           {% endif %}
 
           {% if logo %}
