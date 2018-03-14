@@ -10,7 +10,7 @@ setup(
     name='altdphi',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-    description='A library for calculating alternative variables for background rejection in new physics searches with missing transverse momentum at a hadron collider',
+    description='A library for calculating alternative variables for background rejection in new physics searches with missing transverse momentum at LHC',
     long_description=long_description,
     description_content_type='text/markdown',
     author='Tai Sakuma',
