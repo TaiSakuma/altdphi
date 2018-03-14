@@ -2,7 +2,8 @@
 # altdphi
 
 A Python library for calculating alternative angular variables to
-\\(\Delta\varphi\\) in SUSY searches at LHC
+\\(\Delta\varphi\\) and \\(\Delta\varphi^*\\) in new physics searches
+with missing transverse momentum at LHC.
 
 *****
 
@@ -19,8 +20,8 @@ A Python library for calculating alternative angular variables to
 
 The python library *altdphi* contains code to calculate the
 alternative angular variables for suppression of QCD multijet events
-in SUSY searches at LHC. The variables were presented at SUSY2017.
-This page quickly explains how to use altdphi.
+in SUSY searches at LHC. The variables are described in
+arXiv:xxxx.xxxxx. This page quickly explains how to use altdphi.
 
 *****
 
@@ -89,7 +90,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 This example uses python 3. If you are using python 2, you can import
 `print_function` from ` __future__` so that the `print` command in the
-example works as shown.
+example on this page works as shown.
 
 ```python
 >>> from __future__ import print_function
@@ -106,8 +107,8 @@ We are ready to start using altdphi.
 ### A simple example
 
 Suppose an event has three jets.
-And their \\(p\_{\text{T}i}\\) are 741.63, 498.69,
-and 45.62 GeV. And their \\(\varphi_i\\) are -1.41,  1.81, and 0.92 rad.
+And their \\(p\_{\text{T}i}\\) are `741.63`, `498.69`,
+and `45.62` GeV. And their \\(\varphi_i\\) are `-1.41`,  `1.81`, and `0.92` rad.
 You can define them as numpy arrays as follows:
 ```python
 >>> pt = np.array([741.63, 498.69, 45.62])
@@ -177,14 +178,14 @@ AltDphi(pt=array([ 741.63,  498.69,   45.62]), phi=array([-1.41,  1.81,  0.92]))
 ### Use MET instead of MHT
 
 In the above example, the `AltDphi` object was initialized only with
-`pt` and `phi`. MHT was automatically calculated based on the `pt` and
-`phi`. `AltDphi` has optional arguments `mht`, `mht_phi`. You can
+`pt` and `phi`. The MHT was automatically calculated based on the `pt`
+and `phi`. `AltDphi` has optional arguments `mht`, `mht_phi`. You can
 specify the values of MHT with these optional arguments. For example,
 you can give the values of MET to these arguments, which is useful,
 for example, if the event contains a lepton or photon.
 
-We are still using the same event. Suppose, this event has MET =
-264.16 GeV and its \\(\varphi\\) is 1.44 rad.
+We are still using the same event. Suppose this event has MET =
+`264.16` GeV and its \\(\varphi\\) is `1.44` rad.
 
 ```python
 >>> pt = np.array([741.63, 498.69, 45.62])
@@ -199,8 +200,8 @@ Then, you can create and an `AltDphi` object as follows:
 >>> alt = AltDphi(pt=pt, phi=phi, mht=met, mht_phi=met_phi)
 ```
 
-You can obtain the values of the variables calculated based on MET in
-the place of MHT.
+Now, you can obtain the values of the variables calculated based on
+MET in the place of MHT.
 
 ```python
 >>> print(alt)
