@@ -4,4 +4,14 @@
 A Python library for calculating alternative variables for background rejection
 in new physics searches with missing transverse momentum at LHC
 
+****
+
+The variables are described in
+
+- Tai Sakuma, Henning Flaecher, Dominic Smith, _"Alternative angular variables
+  for suppression of QCD multijet events in new physics searches with missing
+  transverse momentum at the LHC"_, [arXiv:1803.07942](https://arxiv.org/abs/1803.07942)
+
+****
+
 **Documentation:** http://altdphi.readthedocs.io
