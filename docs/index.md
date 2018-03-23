@@ -21,7 +21,8 @@ with missing transverse momentum at LHC.
 The python library *altdphi* contains code to calculate the
 alternative angular variables for suppression of QCD multijet events
 in SUSY searches at LHC. The variables are described in
-arXiv:xxxx.xxxxx. This page quickly explains how to use altdphi.
+[arXiv:1803.07942](https://arxiv.org/abs/1803.07942). This page
+quickly explains how to use altdphi.
 
 *****
 
