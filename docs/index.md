@@ -28,7 +28,7 @@ quickly explains how to use altdphi.
 
 ## 2. Requirement
 
-- Python 2.7 or 3.6
+- Python 2.7, 3.6, 3.7
 - [NumPy](http://www.numpy.org/)
 
 *****
