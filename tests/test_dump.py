@@ -39,7 +39,7 @@ dumped = (
     "int('1')",
     "float('1.0')",
     "float('0.058741')",
-    "np.float64('0.05874120253769107')",
+    # "np.float64('0.058741202537691072')",
     "np.float64(np.pi)",
     "np.float64(np.pi/2)",
     "np.float64(np.pi/4)",
