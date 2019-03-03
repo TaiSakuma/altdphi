@@ -1,10 +1,12 @@
 from setuptools import setup, find_packages
 import versioneer
 
+import os
+import io
 
-long_description = """
-Documentation: `<http://altdphi.readthedocs.io>`__
-"""
+here = os.path.abspath(os.path.dirname(__file__))
+with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='altdphi',
@@ -12,7 +14,7 @@ setup(
     cmdclass=versioneer.get_cmdclass(),
     description='A library for calculating alternative variables for background rejection in new physics searches with missing transverse momentum at LHC',
     long_description=long_description,
-    description_content_type='text/markdown',
+    long_description_content_type='text/markdown',
     author='Tai Sakuma',
     author_email='tai.sakuma@gmail.com',
     url='http://altdphi.readthedocs.io',
