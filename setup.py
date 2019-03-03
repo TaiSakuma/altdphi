@@ -19,7 +19,7 @@ setup(
     author_email='tai.sakuma@gmail.com',
     url='http://altdphi.readthedocs.io',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 2.7',
