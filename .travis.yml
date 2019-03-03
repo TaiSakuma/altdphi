@@ -32,3 +32,14 @@ after_success:
   - codecov
 
 cache: apt
+
+deploy:
+  provider: pypi
+  user: tai.sakuma
+  distributions: sdist bdist_wheel --universal
+  password:
+    secure: Ms4tG270iJCDmnufjFohNyO3gNMetDOabps08nV2By89q8nqwVsSZdTO38JE5RvCtLDiIei/qc14hZ75rf0MGK04jRBc4ApMusvzpZYHoLUp5LDaangYQzvDSlY82pwi12GRnLF4a1CpuoNQ0nvvqNL6r4++q+racFDmpgfdLgRqAXi7HiMnYe8xcfyZnpD6QM76n+MINzHQQ3IrhUIHn4kiN708BdwpZqw1/+uFIT+Pst0RHwHU0tMzch9r1iT/q/qdgAP0WJMwgQCo5dVD2yA8BzNKrzv9lqIoGvEUpQmKm8XoOtrQxO7oMGJPCaXJ/7jplK7mB3RrxPy/j0s50K8WyAsf2d/L8TJtFz+I8vqN7ZN2tVXy22txedziOxggnLyouyL2Jn6nELBv7qdSjXYoLT9GIx3NYvHJ9HSw/W3XapUDEvSMwuicsm5WjbH5+xnnWfottW6CXpV62xL2fZNVJxyTfFt8X1a2MbMGbTBLcqBJnnQrMpQXe6rhBy0cQR/4kZmitpcIl6s+82axbWiwwR9XxiRelWftcGFgk7XC5OG6ZgQutUHv73XHNssDBeoVdAGgvl14LVtGq/V7QM7SN7k7HUegL2W0RVn6t8RYrENbkgPeBxl1e4GHqyrXCbD+np61+PjxxcW2Dcn9iuXRTesuN1q2y3BRJAZm2XY=
+  on:
+    tags: true
+    python: 3.6
+    condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+$
