@@ -22,12 +22,7 @@ install:
   - export CONDA_ENV_PATH=$HOME/miniconda/envs/testenv
   - source activate testenv
   - python setup.py -q install
-  - pip install -r requirements.txt
-  - pip install pandas
-  - pip install pytest
-  - pip install codecov
-  - pip install pytest-cov
-  - pip install pytest-mock
+  - pip install -r requirements/test.txt
 
 script:
   - pytest --cov
