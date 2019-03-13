@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 #### Changs from the previous release: ([diff](https://github.com/TaiSakuma/altdphi/compare/v1.0.4...master))
+- updated `README.md`, docs
 
 ## [1.0.4] - 2019-03-03
 
@@ -10,7 +11,7 @@
 
 #### Changs from the previous release: ([diff](https://github.com/TaiSakuma/altdphi/compare/v1.0.0...v1.0.4))
 - updated `.travis.yml`, `MANIFEST.in`, `setup.py`, `docs`, `requirements`
-- added CHANGELOG.md
+- added `CHANGELOG.md`
 
 ## [1.0.0] - 2018-02-14
 
