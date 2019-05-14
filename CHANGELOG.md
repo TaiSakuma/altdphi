@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 #### Changs from the previous release: ([diff](https://github.com/TaiSakuma/altdphi/compare/v1.0.5...master))
+- updated docs
 
 ## [1.0.5] - 2019-05-14
 
