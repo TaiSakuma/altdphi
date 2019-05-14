@@ -2,8 +2,14 @@
 
 ## [Unreleased]
 
-#### Changs from the previous release: ([diff](https://github.com/TaiSakuma/altdphi/compare/v1.0.4...master))
-- updated `README.md`, docs
+#### Changs from the previous release: ([diff](https://github.com/TaiSakuma/altdphi/compare/v1.0.5...master))
+
+## [1.0.5] - 2019-05-14
+
+**PyPI**: https://pypi.org/project/altdphi/1.0.5/
+
+#### Changs from the previous release: ([diff](https://github.com/TaiSakuma/altdphi/compare/v1.0.4...v1.0.5))
+- updated `README.md`, `setup.py`, docs
 
 ## [1.0.4] - 2019-03-03
 
